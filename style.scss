@@ -19,13 +19,42 @@
     border: none !important;
 }
 
-.white{
+.white {
     color: #dddddd;
 }
 
 .dataTables_wrapper {
     width: 100%;
-    table{
+
+    // table {
         // background: #aed248;
-    }
+    // }
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.grid {
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px #aaaaaa;
+    text-align: center;
+    width: 30%;
+    height: 100px;
+    padding: 30px;
+    margin: 15px;
+    font-family: cursive;
+    transition: 0.3s;
+}
+
+.grid:hover {
+    background-color: black;
+    color: white;
+}
+
+#mouse {
+    cursor: pointer;
 }
