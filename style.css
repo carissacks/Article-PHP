@@ -18,35 +18,3 @@
 
 #title {
   text-transform: capitalize; }
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-
-.grid {
-  border: 1px solid black;
-  border-radius: 8px;
-  -webkit-box-shadow: 2px 2px 10px #aaaaaa;
-  box-shadow: 2px 2px 10px #aaaaaa;
-  text-align: center;
-  width: 30%;
-  height: 100px;
-  padding: 30px;
-  margin: 15px;
-  font-family: cursive;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s; }
-
-.grid:hover {
-  background-color: black;
-  color: white; }
-
-#mouse {
-  cursor: pointer; }

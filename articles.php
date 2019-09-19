@@ -49,7 +49,8 @@
                                     <div class="box-image">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="#"> <?= $row['title']?></a></h2>
+                                    <h2><a href="post.php?type=articles&id=<?= $row['id']?>"> <?= $row['title']?></a>
+                                    </h2>
                                     <span class="content-date">
                                         <time class="meta-text" datetime="<?= $row['date']?>">
                                             <?= date_format($date,"d F Y");?>

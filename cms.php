@@ -25,14 +25,24 @@
                     alt="logo umn">
                 <h3 class="mt-3 white">Category</h3>
                 <div class="list-group">
-                    <button id="featured" class="list-group-item list-group-item-action list-group-item-secondary type">Featured</button>
-                    <button id="events" class="list-group-item list-group-item-action list-group-item-secondary type">Events</button>
-                    <button id="news" class="list-group-item list-group-item-action list-group-item-secondary type">News</button>
-                    <button id="articles" class="list-group-item list-group-item-action list-group-item-secondary type">Articles</button>
-                    <button id="photos" class="list-group-item list-group-item-action list-group-item-secondary type">Photos</button>
-                    <button id="accountingupdate" class="list-group-item list-group-item-action list-group-item-secondary type">Accounting Up Date</button>
-                    <button id="research" class="list-group-item list-group-item-action list-group-item-secondary type">Research</button>
-                    <button id="bookreview" class="list-group-item list-group-item-action list-group-item-secondary type">Book Review</button>
+                    <button id="featured"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Featured</button>
+                    <button id="events"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Events</button>
+                    <button id="news"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">News</button>
+                    <button id="articles"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Articles</button>
+                    <button id="photos"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Photos</button>
+                    <button id="accountingupdate"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Accounting Up
+                        Date</button>
+                    <button id="research"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Research</button>
+                    <button id="bookreview"
+                        class="list-group-item list-group-item-action list-group-item-secondary type">Book
+                        Review</button>
                 </div>
             </div>
             <div class="col-10 p-4" id="content">
@@ -47,16 +57,16 @@
                         </form>
                     </div>
                     <div class="row my-4 justify-content-center w-100">
-                    <table class="table table-hover table-striped table-bordered" id="myTable" style="width:100%">
-                        <thead>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Content</th>
-                            <th>Modified date</th>
-                            <th></th>
-                        </thead>
-                        <tbody>
-                        <?php
+                        <table class="table table-hover table-striped table-bordered" id="myTable" style="width:100%">
+                            <thead>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Modified date</th>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                <?php
                             $host = "localhost";
                             $username = "root";
                             $password = "";
@@ -111,30 +121,30 @@
                                         <button class="btn btn-primary mt-2">Edit</button>
                                     </td>
                                 </tr>
-                        <?php   endwhile;
-
+                                <?php   
+                            endwhile;
                             mysqli_free_result($result);
                             mysqli_close($db);
                         ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#myTable').DataTable();
         })
-            
-        $(".type").click(function(){
+
+        $(".type").click(function () {
             $(".type").removeClass("active");
             // var idType = '#'+$(this).attr('id');
             // $(idType).addClass("active");
             $('#idPost').val($(this).attr('id'));
-            window.location.href = "cms.php?type="+$(this).attr('id');
-        })   
+            window.location.href = "cms.php?type=" + $(this).attr('id');
+        })
     </script>
 </body>
 
