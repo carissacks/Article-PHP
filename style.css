@@ -1,0 +1,17 @@
+#sidebar {
+  background-color: #171717; }
+
+.list-group-item[aria-expanded="true"] {
+  background-color: black !important;
+  border-color: #aed248; }
+
+.list-group-item.active,
+.list-group-item.active:hover {
+  background-color: #252525 !important;
+  border: none !important; }
+
+.white {
+  color: #dddddd; }
+
+.dataTables_wrapper {
+  width: 100%; }
