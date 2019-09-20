@@ -45,10 +45,17 @@
                         Review</button>
                 </div>
             </div>
+            <?php
+                if(isset($_GET['type'])):
+                    $type= $_GET['type'];
+                else:
+                    $type= 'featured';
+                endif;
+            ?>
             <div class="col-10 p-4" id="content">
                 <div class="container">
                     <div class="row w-100">
-                        <h1 id="title"><?=$_GET['type']?></h1>
+                        <h1 id="title"><?=$type?></h1>
                     </div>
                     <div class="row justify-content-end w-100">
                         <form method="POST">
@@ -66,7 +73,7 @@
                                 <th></th>
                             </thead>
                             <tbody>
-                                <?php
+                        <?php
                             $host = "localhost";
                             $username = "root";
                             $password = "";
@@ -75,34 +82,31 @@
 
                             $db = new mysqli($host, $username, $password, $dbname);
 
-                            if(isset($_GET['type'])){
-                                global $tabelDatabase;
-
-                                echo "<script>$('#".$_GET['type']."').addClass('active')</script>";
-                                if($_GET['type'] == 'featured'){
-                                    $tabelDatabase = "ms_category_featured";
-                                }
-                                if($_GET['type'] == 'events'){
-                                    $tabelDatabase = "ms_category_events";
-                                }
-                                if($_GET['type'] == 'news'){
-                                    $tabelDatabase = "ms_category_news";
-                                }
-                                if($_GET['type'] == 'articles'){
-                                    $tabelDatabase = "ms_category_articles";
-                                }
-                                if($_GET['type'] == 'photos'){
-                                    $tabelDatabase = "ms_category_photos";
-                                }
-                                if($_GET['type'] == 'accountingupdate'){
-                                    $tabelDatabase = "ms_category_accountingupdate";
-                                }
-                                if($_GET['type'] == 'research'){
-                                    $tabelDatabase = "ms_category_research";
-                                }
-                                if($_GET['type'] == 'bookreview'){
-                                    $tabelDatabase = "ms_category_bookreview";
-                                }
+                            global $tabelDatabase;
+                            echo "<script>$('#".$type."').addClass('active')</script>";
+                            if($type == 'featured'){
+                                $tabelDatabase = "ms_category_featured";
+                            }
+                            else if($type == 'events'){
+                                $tabelDatabase = "ms_category_events";
+                            }
+                            else if($type == 'news'){
+                                $tabelDatabase = "ms_category_news";
+                            }
+                            else if($type == 'articles'){
+                                $tabelDatabase = "ms_category_articles";
+                            }
+                            else if($type == 'photos'){
+                                $tabelDatabase = "ms_category_photos";
+                            }
+                            else if($type == 'accountingupdate'){
+                                $tabelDatabase = "ms_category_accountingupdate";
+                            }
+                            else if($type == 'research'){
+                                $tabelDatabase = "ms_category_research";
+                            }
+                            else if($type == 'bookreview'){
+                                $tabelDatabase = "ms_category_bookreview";
                             }
 
                             $query = "SELECT * FROM $tabelDatabase";
@@ -117,11 +121,14 @@
                                     <td><?= substr($row['content'], 0, 150) ?></td>
                                     <td><?=$row['date']?></td>
                                     <td>
-                                        <button class="btn btn-primary mt-2">Delete</button>
+                                        <form action="delContent.php" method="POST">
+                                            <input type="text" name="id" required value="<?=$row['id']?>" hidden>
+                                            <button type="submit" class="btn btn-primary mt-2">Delete</button>
+                                        </form>
                                         <button class="btn btn-primary mt-2">Edit</button>
                                     </td>
                                 </tr>
-                                <?php   
+                        <?php   
                             endwhile;
                             mysqli_free_result($result);
                             mysqli_close($db);
