@@ -1,38 +1,67 @@
-<?php include '../include/header.php' ?>
+<?php 
+    include '../include/header.php';
+    include '../include/db_connection.php';
+?>
+
 <body>
     <div class="container-fluid">
         <div class="row justify-content-center my-4">
-            <div class="col-10">
+            <div class="col-md-9 col-11">
                 <?php
-                    include '../include/db_connection.php';
                     $count = 0;
 
-                    if(isset($_GET['type'], $_GET['id'])):
-                        $type= $_GET['type'];
+                    if(isset($_GET['type'],$_GET['id'])):
+                        $type = $db->real_escape_string($_GET['type']);
                         include '../include/databaseTable.php';
-                        echo "<script>$('#".$_GET['type']."').addClass('active')</script>";
                     
-                    // $tabelDatabase = "ms_category_bookreview";
-                    // var_dump( $_GET);
-                        $id=$_GET['id'];
-                        $query= "SELECT * FROM ms_category_articles WHERE id= '".$id."'";
-                        $result = $db->query($query);
-                        while($row = $result->fetch_assoc()):
+                        $id = $db->real_escape_string($_GET['id']);
+
+                        $query= "SELECT * FROM $tabelDatabase WHERE id= '".$id."'";
+                        $result = $db->query($query)->fetch_assoc();
+                        $date = date_create($result['date']);
                 ?>
 
-                <h1 class="text-center"><?=$row['title']?></h1>
+                <h1 class="text-center"><?=$result['title']?></h1>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <img class="img-fluid" src="https://dummyimage.com/600x400/000/fff" alt="cover-img">
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 m-2">
-                <p><?=$row['content']?></p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-12">
+                    <div class="row justify-content-center my-md-3 my-2">
+                        <img class="img-fluid" src="https://dummyimage.com/600x400/000/fff" alt="cover-img">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 m-2 p-0">
+                            <p class="text-justify"><?=$result['content']?></p>
+                            <hr class="w-25 text-left row justify-content-start">
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-12">                            
+                            <small>Published at <?=date_format($date,"d F Y");?></small>
+                        </div>
+                    </div>
+                    <div class="row justify-content-start">
+                        <div class="col-12">
+                        <hr class="w-100">
+                            <h5>Related Content</h5>
+                            <ul>
+                            <?php
+                                $year=date("Y");
+                                $query2= "SELECT * FROM $tabelDatabase WHERE date LIKE '$year%' AND id !='$id'LIMIT 3";
+                                $related = $db->query($query2);
+
+                                while($row= $related->fetch_assoc()):
+                            ?>
+                                <li><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?=$row['title']?></a></li>
+                            <?php endwhile;?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-                <?php endwhile;
-                        mysqli_free_result($result);
+                <?php 
                         mysqli_close($db);
                     else:
                         header("Location: ".headerAddress()."interface/pagenotfound.php");

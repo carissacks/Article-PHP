@@ -3,7 +3,7 @@
     include '../include/db_connection.php';
 
     if(isset($_GET['type'])):
-        $type= $_GET['type'];
+        $type = $db->real_escape_string($_GET['type']);
     else:
         $type= 'featured';
     endif;
@@ -40,7 +40,7 @@
             <div class="col-md-10 col-12 p-4" id="content">
                 <div class="container">
                     <div class="row w-100">
-                        <h1 id="title"><?=$type?></h1>
+                        <h1 class="title"><?=$type?></h1>
                     </div>
                     <div class="row justify-content-end w-100">
                         <form method="POST" action="addForm.php">

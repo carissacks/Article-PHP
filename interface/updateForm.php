@@ -1,16 +1,22 @@
-<?php include '../include/header.php' ?>
+<?php 
+	include '../include/header.php';
+	include '../include/db_connection.php';
+?>
 <body>
 	<?php
 		if(isset($_POST['type'], $_POST['id'])){	
-			// $category = $_POST['category'];
+			// $type = $db->real_escape_string($_POST['type']);
 			$type = $_POST['type'];
 			include '../include/databaseTable.php';
 
-            include '../include/db_connection.php';
-
-            $id = $_POST['id'];
+            // $id = $db->real_escape_string($_POST['id']);
+			$id = $_POST['id'];
+			
             $query = "SELECT * FROM $tabelDatabase WHERE id = '$id'";
-            $result = $db->query($query);
+			$result = $db->query($query);
+			// $query = $db->prepare("SELECT * FROM ? WHERE id = ?");
+			// $query->bind_param("sss", $tabelDatabase, $id);
+			// $result= $query->execute();
 
             while($row = $result->fetch_assoc()) {
                 $title = $row['title'];
@@ -20,7 +26,7 @@
                 $content = $row['content'];
             }
 
-            mysqli_free_result($result);
+			mysqli_free_result($result);
             mysqli_close($db);
 		}
 		else{

@@ -3,10 +3,12 @@
 	include '../function.php';
 
 	if(isset($_POST['type'])):
-		$type= $_POST['type'];
+		// $type = $db->real_escape_string($_POST['type']);
+		$type = $_POST['type'];
 
 		include '../include/databaseTable.php';
 
+		// $id = $db->real_escape_string($_POST['id']);
 		$id = $_POST['id'];
 	
 		$query = "DELETE FROM $tabelDatabase WHERE id = '$id'";

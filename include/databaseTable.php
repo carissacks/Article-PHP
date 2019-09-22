@@ -23,5 +23,8 @@
     else if($type == 'bookreview'){
         $tabelDatabase = "ms_category_bookreview";
     }
+    else{
+        header("Location: ".headerAddress()."interface/pagenotfound.php");
+    }
 
 ?>
