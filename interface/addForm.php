@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" rel="stylesheet">
-	<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-</head>
+<?php include '../include/header.php' ?>
 <body>
 	<header>
 		<nav class="navbar navbar-default">
@@ -28,12 +13,10 @@
 		</nav>
 	</header>
 	<?php
-		if(isset($_POST['category']))
-    	{	
+		if(isset($_POST['type'])){	
 			// $category = $_POST['category'];
-			$category = 'articles';
+			$type = $_POST['type'];
 		}
-		$category = 'articles';
 	?>
     <div class="container">
 		<form class="form" action="addContent.php" method="POST" enctype="multipart/form-data">
@@ -56,13 +39,14 @@
             <div class="form-group">
 				<label for="cover">Cover Image</label>
                 <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image">
+
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>
                 <input type="text" class="input form-control" name="content" required placeholder="Insert Content">
 			</div>
-			<input type="text" class="input form-control hidden" name="category" required value="<?php echo $category ?>">
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type ?>">
+			<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 			<button class="btn btn-secondary"><a href="home.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>

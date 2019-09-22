@@ -1,10 +1,7 @@
 <?php
-	$host = "localhost";
-	$username = "root";
-	$dbname = "accumn";
-	$password = "";
-	$db = new mysqli($host, $username, $password, $dbname);
-	
+	include '../include/db_connection.php';
+	include '../function.php';
+
 	$category = $_POST['category'];
 	$id = $_POST['id'];
 	$title = $_POST['title'];
@@ -16,11 +13,11 @@
 
 	$img = move_uploaded_file($_FILES['coverimg']['tmp_name'],"assets/".$_FILES['coverimg']['name']);
 	
-	$query = "INSERT INTO ms_category_$category VALUES('$id', '$title', '$date', '$publisher', '$coverimg', '$content', '$updated')";
+    $query = "UPDATE ms_category_$category SET title = '$title', date = '$date', publisher = '$publisher', cover_img = '$coverimg', content = '$content', updated = '$updated' WHERE id = '$id'";
 	$result = $db->query($query);
 
 	if($result == true)
 	{
-		// header("Location: http://localhost/home.php");
+		header("Location:".headerAddress()."cms.php");
 	}
 ?>
