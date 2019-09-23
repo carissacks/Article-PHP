@@ -34,7 +34,7 @@
 		}
 	?>
     <div class="container">
-		<form class="form" action="updateContent.php" method="POST" enctype="multipart/form-data">
+		<form class="form" action="../cms/updateContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
                 <input type="text" class="input form-control" name="id" value="<?php echo $id?>" disabled placeholder="Insert ID">

@@ -19,7 +19,7 @@
 		}
 	?>
     <div class="container">
-		<form class="form" action="addContent.php" method="POST" enctype="multipart/form-data">
+		<form class="form" action="../cms/addContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
                 <input type="text" class="input form-control" name="id" required placeholder="Insert ID">
