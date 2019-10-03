@@ -64,7 +64,7 @@
                 <?php 
                         mysqli_close($db);
                     else:
-                        header("Location: ".headerAddress()."interface/pagenotfound.php");
+                        headTo("interface/pagenotfound.php");
                     endif;
                 ?>
     </div>
