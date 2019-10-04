@@ -2,10 +2,12 @@
     include './include/header.php';
     include './include/db_connection.php';
 
+    date_default_timezone_set("Asia/Jakarta");
+
     if(isset($_GET['type'])):
         $type = $db->real_escape_string($_GET['type']);
     else:
-        $type= 'featured';
+        $type= 'news';
     endif;
 
     include './include/databaseTable.php';

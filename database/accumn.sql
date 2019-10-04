@@ -35,6 +35,14 @@ CREATE TABLE `ms_category_accountingupdate` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -51,6 +59,14 @@ CREATE TABLE `ms_category_articles` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -74,6 +90,14 @@ CREATE TABLE `ms_category_bookreview` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -90,6 +114,14 @@ CREATE TABLE `ms_category_events` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -106,6 +138,14 @@ CREATE TABLE `ms_category_featured` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -122,6 +162,14 @@ CREATE TABLE `ms_category_news` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -138,6 +186,14 @@ CREATE TABLE `ms_category_photos` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
@@ -154,6 +210,14 @@ CREATE TABLE `ms_category_research` (
   `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
   `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
   `content` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_2` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_2` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_3` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_3` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_4` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_4` varchar(5000) COLLATE ascii_bin NOT NULL,
+  `image_5` varchar(75) COLLATE ascii_bin NOT NULL,
+  `content_5` varchar(5000) COLLATE ascii_bin NOT NULL,
   `updated` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
 
