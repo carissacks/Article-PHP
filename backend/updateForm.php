@@ -22,7 +22,7 @@
                 $title = $row['title'];
                 $date = $row['date'];
                 $publisher = $row['publisher'];
-                $coverimg = $row['coverimg'];
+                $coverimg = $row['cover_img'];
                 $content = $row['content'];
             }
 

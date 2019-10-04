@@ -27,9 +27,9 @@ SET time_zone = "+00:00";
 
 
 --
--- Dumping data for table `ms_category_research`
+-- Dumping data for table `ms_category_bookreview`
 --
-INSERT INTO `ms_category_featured` (`id`, `title`, `date`, `publisher`, `cover_img`, `content`, `updated`) VALUES
+INSERT INTO `ms_category_bookreview` (`id`, `title`, `date`, `publisher`, `cover_img`, `content`, `updated`) VALUES
 ('F01',	'Sword Art Online : Memory Defrag Menjadi Game #1 di Play Store',	'2019-09-13',	'Alvin V',	'https://dummyimage.com/600x400/000/fff',	'Ini konten',	0),
 ('F02',	'Sword Art Online : Memory Defrag Menjadi Game #1 di Play Store',	'2019-09-13',	'Alvin V',	'https://dummyimage.com/600x400/000/fff',	'Ini konten',	0),
 ('F03',	'Sword Art Online : Memory Defrag Menjadi Game #1 di Play Store',	'2019-09-13',	'Alvin V',	'https://dummyimage.com/600x400/000/fff',	'Ini konten',	0),
@@ -49,9 +49,9 @@ INSERT INTO `ms_category_featured` (`id`, `title`, `date`, `publisher`, `cover_i
 --
 
 --
--- Indexes for table `ms_category_featured`
+-- Indexes for table `ms_category_bookreview`
 --
-ALTER TABLE `ms_category_featured`
+ALTER TABLE `ms_category_bookreview`
   ADD PRIMARY KEY (`id`);
 COMMIT;
 
