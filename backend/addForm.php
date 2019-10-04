@@ -15,7 +15,7 @@
 	}
 
 	function addImage(){
-		if(idxImage <= 5){
+		if(idxImage <= 4){
 			document.getElementById('newImg').innerHTML += 
 			"<div id='img-"+idxImage+"'class='form-group'> <label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
                 "<input type='file' class='input form-control' name='idImage-"+idxImage+"' required>"+
@@ -28,7 +28,7 @@
 	}
 
 	function addContent(){
-		if(idxContent <= 5){
+		if(idxContent <= 4){
 			document.getElementById('newContent').innerHTML += 
 			"<div id='content-"+idxContent+"'class='form-group'> <label for='idContent-"+idxContent+"'>Content-"+idxContent+"</label>"+
                 "<input type='text' class='input form-control' name='idContent-"+idxContent+"' required placeholder='Insert Content-"+idxContent+"'>"+
