@@ -14,17 +14,17 @@
 	$img = $_FILES['coverimg']['tmp_name'];
 	$filepath = "images/".$image;
 	
-	$query = "INSERT INTO ms_category_$type  VALUES('$id', '$title', '$date', '$publisher','$image', '$content', '$updated')";
+	$query = "INSERT INTO ms_category_$type  ('id', 'title', 'date', 'publisher', 'cover_img', 'content', 'updated') VALUES('$id', '$title', '$date', '$publisher','$image', '$content', '$updated')";
 	$result = $db->query($query);
 	
-	if($result)
+	if($result == true)
 	{
 		headTo("backend/index.php");
 		// header("Location: ".headerAddress()."interface/cms.php");
 	}
 	else
 	{
-		echo "failed";
+		echo "false";
 	}
 
 	// if (move_uploaded_file($img, $filepath)) {

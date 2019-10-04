@@ -48,10 +48,24 @@
                         <h1 class="title"><?=$type?></h1>
                     </div>
                     <div class="row justify-content-end w-100">
+                        <?php
+                            if(strcmp($type,"photos")){
+                        ?>
                         <form method="POST" action="addForm.php">
                             <input name="type" type="text" value="<?=$type?>" hidden>
                             <button class="btn btn-primary" type="submit" name="createNew"><i class='glyphicon glyphicon-plus'></i> Add new</button>
                         </form>
+                        <?php
+                            }
+                            else{
+                        ?>
+                        <form method="POST" action="addPhotosForm.php">
+                            <input name="type" type="text" value="<?=$type?>" hidden>
+                            <button class="btn btn-primary" type="submit" name="createNew"><i class='glyphicon glyphicon-plus'></i> Add new</button>
+                        </form>
+                        <?php 
+                            } 
+                        ?>
                     </div>
                     <div class="row my-md-4 mx-0 justify-content-center w-100">
                         <table class="table table-hover table-striped table-bordered m-0 p-0" id="myTable"
@@ -79,13 +93,23 @@
                                     <td><?=$row['date']?></td>
                                     <td>
                                         <form action="./cms/delContent.php" method="POST">
-                                            <input type="text" name="id" required value="<?=$row['id']?>" hidden>
-                                            <input type="text" name="type" required value="<?=$type?>" hidden>
+                                            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                            <input type="text" name="type" value="<?=$type?>" hidden>
+                                            <input type="text" name="img1" value="<?=$row['cover_img']?>" hidden>
+                                            <input type="text" name="img2" value="<?=$row['image_1']?>" hidden>
+                                            <input type="text" name="img3" value="<?=$row['image_2']?>" hidden>
+                                            <input type="text" name="img4" value="<?=$row['image_3']?>" hidden>
+                                            <input type="text" name="img5" value="<?=$row['image_4']?>" hidden>
                                             <button type="submit" class="btn btn-primary mt-2"><i class='glyphicon glyphicon-trash'></i></button>
                                         </form>
                                         <form action="updateForm.php" method="POST">
-                                            <input type="text" name="id" required value="<?=$row['id']?>" hidden>
-                                            <input type="text" name="type" required value="<?=$type?>" hidden>
+                                            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                            <input type="text" name="type" value="<?=$type?>" hidden>
+                                            <input type="text" name="img1" value="<?=$row['cover_img']?>" hidden>
+                                            <input type="text" name="img2" value="<?=$row['image_1']?>" hidden>
+                                            <input type="text" name="img3" value="<?=$row['image_2']?>" hidden>
+                                            <input type="text" name="img4" value="<?=$row['image_3']?>" hidden>
+                                            <input type="text" name="img5" value="<?=$row['image_4']?>" hidden>
                                             <button class="btn btn-primary mt-2"><i class='glyphicon glyphicon-pencil'></i></button>
                                         </form>
                                     </td>

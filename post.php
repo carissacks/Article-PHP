@@ -126,8 +126,11 @@
                             <h5>Related Content</h5>
                             <ul>
                             <?php
-                                $year=date("Y");
-                                $query2= "SELECT * FROM $tabelDatabase WHERE date LIKE '$year%' AND id !='$id'LIMIT 3";
+                                $year=date_format($date,"Y");
+                                $query1= "SELECT * FROM $tabelDatabase WHERE date LIKE '$year%' AND id !='$id'";
+                                $related = $db->query($query1);
+                                $rnd = rand(0, max(mysqli_num_rows($related)-3, 0));
+                                $query2= "SELECT * FROM $tabelDatabase WHERE date LIKE '$year%' AND id !='$id' LIMIT 3 OFFSET $rnd";
                                 $related = $db->query($query2);
 
                                 while($row= $related->fetch_assoc()):
