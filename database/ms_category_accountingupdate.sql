@@ -51,9 +51,9 @@ INSERT INTO `ms_category_accountingupdate` (`id`, `title`, `date`, `publisher`, 
 --
 -- Indexes for table `ms_category_accountingupdate`
 --
-ALTER TABLE `ms_category_accountingupdate`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
+-- ALTER TABLE `ms_category_accountingupdate`
+--   ADD PRIMARY KEY (`id`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
