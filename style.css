@@ -42,3 +42,15 @@ h1{
 small{
   font-size: 1.5vh;
 }
+
+.abc {
+  text-transform: uppercase;
+}
+
+li{
+  font-size: 2vh;
+}
+
+.breadcrumb-item{
+  text-transform: capitalize;
+}
