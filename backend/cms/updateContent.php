@@ -9,7 +9,7 @@
     $publisher = $_POST['publisher'];
     $coverimg = $_FILES['coverimg'];
 	$content = $_POST['content'];
-	$updated = '0';
+	$updated = '1';
 	$image = $_FILES['coverimg']['name'];
 	$img = $_FILES['coverimg']['tmp_name'];
 	$filepath = "images/".$image;
