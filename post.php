@@ -12,23 +12,31 @@
 ?>
 
 <body>
+<?php
+    include "navbar.php";
+    $count = 0;
+
+    if(isset($_GET['type'],$_GET['id'])):
+        $type = $db->real_escape_string($_GET['type']);
+        include './include/databaseTable.php';
+    
+        $id = $db->real_escape_string($_GET['id']);
+
+        $query= "SELECT * FROM $tabelDatabase WHERE id= '".$id."'";
+        $result = $db->query($query)->fetch_assoc();
+        $date = date_create($result['date']);
+?>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mx-3" style="background-color: transparent;">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><?=$type?></li>
+            <li class="breadcrumb-item active"><?=$result['title']?></li>
+        </ol>
+    </nav>
+
     <div class="container-fluid">
         <div class="row justify-content-center my-4">
             <div class="col-md-9 col-11">
-                <?php
-                    $count = 0;
-
-                    if(isset($_GET['type'],$_GET['id'])):
-                        $type = $db->real_escape_string($_GET['type']);
-                        include './include/databaseTable.php';
-                    
-                        $id = $db->real_escape_string($_GET['id']);
-
-                        $query= "SELECT * FROM $tabelDatabase WHERE id= '".$id."'";
-                        $result = $db->query($query)->fetch_assoc();
-                        $date = date_create($result['date']);
-                ?>
-
                 <h1 class="text-center"><?=$result['title']?></h1>
             </div>
         </div>
@@ -46,7 +54,7 @@
                             <?php
                                 if($result['content'])
                                     echo "<p class='text-justify'>".$result['content']."</p>
-                                          <hr class='w-25 text-left row justify-content-start'>";
+                                            <hr class='w-25 text-left row justify-content-start'>";
                             ?>                            
                         </div>
                     </div>
@@ -62,7 +70,7 @@
                             <?php
                                 if($result['content_2'])
                                     echo "<p class='text-justify'>".$result['content_2']."</p>
-                                          <hr class='w-25 text-left row justify-content-start'>";
+                                            <hr class='w-25 text-left row justify-content-start'>";
                             ?>
                         </div>
                     </div>
@@ -78,7 +86,7 @@
                             <?php
                                 if($result['content_3'])
                                     echo "<p class='text-justify'>".$result['content_3']."</p>
-                                          <hr class='w-25 text-left row justify-content-start'>";
+                                            <hr class='w-25 text-left row justify-content-start'>";
                             ?>
                         </div>
                     </div>
@@ -94,7 +102,7 @@
                             <?php
                                 if($result['content_4'])
                                     echo "<p class='text-justify'>".$result['content_4']."</p>
-                                          <hr class='w-25 text-left row justify-content-start'>";
+                                            <hr class='w-25 text-left row justify-content-start'>";
                             ?>
                         </div>
                     </div>
@@ -110,7 +118,7 @@
                             <?php
                                 if($result['content_5'])
                                     echo "<p class='text-justify'>".$result['content_5']."</p>
-                                          <hr class='w-25 text-left row justify-content-start'>";
+                                            <hr class='w-25 text-left row justify-content-start'>";
                             ?>
                         </div>
                     </div>

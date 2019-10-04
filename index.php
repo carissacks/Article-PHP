@@ -7,7 +7,7 @@
     if(isset($_GET['type'])):
         $type = $db->real_escape_string($_GET['type']);
     else:
-        $type= 'news';
+        $type= 'featured';
     endif;
 
     include './include/databaseTable.php';
@@ -15,23 +15,32 @@
 
 <body>
     <?php include "navbar.php"?>
-
     <section id="article-container" class="container-fluid">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mx-3" style="background-color: transparent;">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><?=$type?></li>
+        </ol>
+    </nav>
+
         <div class="container-fluid">
             <div class="child-container container">
                 <section id="archive">
-                    <div class="row justify-content-center w-100 text-center my-3">
+                    <div class="row justify-content-center text-center mb-5">
                         <i class="archive-icon icon-block-featured"></i>
                         <h1 class="title"><?=$type?></h1>
                     </div>
 
                     <div class="archive-items">
+                        <div class='row py-md-2 py-0'>
+                            
                         <?php
                             if (!isset($_GET['page'])){
                                 $page=1;
                             }
                             else $page= $_GET['page'];
-                            $q = "SELECT COUNT(*) AS `count` FROM `ms_category_$type`";
+                            $q = "SELECT COUNT(*) AS `count` FROM `$tabelDatabase`";
                             $hasil = $db->query($q);
                             $data = mysqli_fetch_assoc($hasil);
                             $last = ceil($data['count']/9);
@@ -51,11 +60,11 @@
                                 $date=date_create($row['date']);
                                 if($idx%3==0):
                         ?>
-                        <div class='row py-2'>
+                        <!-- <div class='row py-md-2 py-0'> -->
                             <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12" id="">
                                 <header>
-                                    <div class="box-image">
+                                    <div class="box-image mb-3">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
                                     <h2><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
@@ -72,18 +81,19 @@
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>
-                        </div>
+                        <!-- </div> -->
                         <?php 
                                 endif;
                                 $idx++;
                             endwhile;
                         ?>
+                        </div>
                     </div>
                 </section>
-            </div>
-            <?php
+                <?php
                 include "pagination.php";
             ?>
+            </div>
         </div>
     </section>
     <!-- footer -->
