@@ -20,7 +20,7 @@
 		}
 	?>
     <div class="container">
-		<form class="form" action="../cms/addContent.php" method="POST" enctype="multipart/form-data">
+		<form class="form" action="./cms/addContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
                 <input type="text" class="input form-control" name="id" required placeholder="Insert ID">
@@ -45,7 +45,7 @@
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type ?>">
 			<button type="submit" class="btn btn-primary" name="submit">Submit</button>
-			<button class="btn btn-secondary"><a href="home.php" style="color: white">Cancel</a></button>
+			<button class="btn btn-secondary"><a href="index.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>
 </body>

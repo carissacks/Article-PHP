@@ -25,20 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ms_category_articles`
---
-
-CREATE TABLE `ms_category_articles` (
-  `id` varchar(10) COLLATE ascii_bin NOT NULL,
-  `title` varchar(100) COLLATE ascii_bin NOT NULL,
-  `date` date NOT NULL,
-  `publisher` varchar(20) COLLATE ascii_bin NOT NULL,
-  `cover_img` varchar(75) COLLATE ascii_bin DEFAULT NULL,
-  `content` varchar(5000) COLLATE ascii_bin NOT NULL,
-  `updated` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=ascii COLLATE=ascii_bin;
-
---
 -- Dumping data for table `ms_category_articles`
 --
 

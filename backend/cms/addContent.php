@@ -15,22 +15,31 @@
 	$filepath = "images/".$image;
 	
 	$query = "INSERT INTO ms_category_$type  VALUES('$id', '$title', '$date', '$publisher','$image', '$content', '$updated')";
-
 	$result = $db->query($query);
 	
-	if (move_uploaded_file($img, $filepath)) {
-		$msg = "Image uploaded successfully";
-		if($result)
-		{
-			echo "success";
-			headTo("interface/cms.php");
-			// header("Location: ".headerAddress()."interface/cms.php");
-		}
-		else
-		{
-			echo "failed";
-		}
-	}else{
-		$msg = "Failed to upload image";
+	if($result)
+	{
+		headTo("backend/index.php");
+		// header("Location: ".headerAddress()."interface/cms.php");
 	}
+	else
+	{
+		echo "failed";
+	}
+
+	// if (move_uploaded_file($img, $filepath)) {
+	// 	$msg = "Image uploaded successfully";
+	// 	// if($result)
+	// 	// {
+	// 	// 	echo "success";
+	// 	// 	headTo("../index.php");
+	// 	// 	// header("Location: ".headerAddress()."interface/cms.php");
+	// 	// }
+	// 	// else
+	// 	// {
+	// 	// 	echo "failed";
+	// 	// }
+	// }else{
+	// 	$msg = "Failed to upload image";
+	// }
 ?>
