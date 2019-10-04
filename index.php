@@ -25,7 +25,10 @@
 
                     <div class="archive-items">
                         <?php
-                            $page = $_GET['page'];
+                            if (!isset($_GET['page'])){
+                                $page=1;
+                            }
+                            else $page= $_GET['page'];
                             $q = "SELECT COUNT(*) AS `count` FROM `ms_category_$type`";
                             $hasil = $db->query($q);
                             $data = mysqli_fetch_assoc($hasil);
@@ -53,7 +56,7 @@
                                     <div class="box-image">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                    <h2><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
                                     </h2>
                                     <span class="content-date">
                                         <time class="meta-text" datetime="<?= $row['date']?>">

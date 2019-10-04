@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 0%;">
     <!-- <div class="navbar-header navbar-brand">
         <h4 class="white" height="100%">UMN Category</h4>
     </div>

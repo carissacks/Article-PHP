@@ -4,6 +4,6 @@
     }
 
     function headTo($url){
-        header("Location: https://localhost/pemweb/uts/".$url);
+        header("Location: https://localhost/utspemweb/".$url);
     }
 ?>
