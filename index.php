@@ -30,7 +30,7 @@
             <div class="child-container container">
                 <section id="archive">
                     <div class="row justify-content-center w-100 text-center my-3">
-                        <i class="archive-icon icon-block-featured"></i>
+                        <!-- <i class="archive-icon icon-block-featured"></i> -->
                         <h1 class="title"><?=$type?></h1>
                     </div>
 
@@ -59,7 +59,7 @@
                                     <div class="box-image">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                    <h2><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
                                     </h2>
                                     <span class="content-date">
                                         <time class="meta-text" datetime="<?= $row['date']?>">
@@ -69,7 +69,7 @@
                                 </header>
                                 <p class=""><?= substr($row['content'], 0, 100)?>...</p>
                                 <p class="view-all">
-                                    <a  href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
+                                    <a  href="post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>
