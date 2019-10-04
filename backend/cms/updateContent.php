@@ -10,15 +10,22 @@
     $coverimg = $_FILES['coverimg'];
 	$content = $_POST['content'];
 	$updated = '0';
+	$image = $_FILES['coverimg']['name'];
+	$img = $_FILES['coverimg']['tmp_name'];
+	$filepath = "images/".$image;
 
-	$img = move_uploaded_file($_FILES['coverimg']['tmp_name'],"assets/".$_FILES['coverimg']['name']);
-	
-    $query = "UPDATE ms_category_$category SET title = '$title', date = '$date', publisher = '$publisher', cover_img = '$coverimg', content = '$content', updated = '$updated' WHERE id = '$id'";
+	// $img = move_uploaded_file($_FILES['coverimg']['tmp_name'],"assets/".$_FILES['coverimg']['name']);
+    $query = "UPDATE ms_category_$type SET title = '$title', date = '$date', publisher = '$publisher', cover_img = '$image', content = '$content', updated = '$updated' WHERE id = '$id'";
 	$result = $db->query($query);
 
 	if($result == true)
 	{
 		// header("Location:".headerAddress()."cms.php");
-		headTo("cms.php");
+		// echo "success";
+		headTo("backend/index.php");
+	}
+	else
+	{
+		echo "false";
 	}
 ?>

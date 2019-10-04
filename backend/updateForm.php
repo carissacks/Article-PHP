@@ -34,7 +34,7 @@
 		}
 	?>
     <div class="container">
-		<form class="form" action="../cms/updateContent.php" method="POST" enctype="multipart/form-data">
+		<form class="form" action="./cms/updateContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
                 <input type="text" class="input form-control" name="id" value="<?php echo $id?>" disabled placeholder="Insert ID">
@@ -60,8 +60,9 @@
                 <input type="text" class="input form-control" name="content" value="<?php echo $content?>" required placeholder="Insert Content">
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type?>">
+			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden placeholder="Insert ID">
 			<button type="submit" class="btn btn-primary">Submit</button>
-			<button class="btn btn-secondary"><a href="<?=headerAddress()?>interface/cms.php" style="color: white">Cancel</a></button>
+			<button class="btn btn-secondary"><a href="<?=headerAddress()?>index.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>
 </body>

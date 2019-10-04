@@ -1,14 +1,6 @@
 <?php 
     include '../include/header.php';
     include '../include/db_connection.php';
-
-    date_default_timezone_set("Asia/Jakarta");
-
-    if(isset($_GET['type'])):
-        $type = $db->real_escape_string($_GET['type']);
-    else:
-        $type= 'news';
-    endif;
 ?>
 
 <body>
@@ -35,27 +27,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-12">
-                    <?php
-                        $id = $_GET['id'];
-                        $tableDatabase = "ms_category_" . $type;
-                        $tabel = $tableDatabase . "_images";
-                        $query = "SELECT * FROM $tabel WHERE page_id = '$id'";
-                        $result = $db->query($query);
-
-                        while($row = $result->fetch_assoc()): 
-                    ?>
                     <div class="row justify-content-center my-md-3 my-2">
-                        <img class="img-fluid" src="<?= $row['imageUrl']?>" alt="cover-img">
+                        <img class="img-fluid" src="https://dummyimage.com/600x400/000/fff" alt="cover-img">
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-11 m-2 p-0">
-                            <p class="text-justify"><?=$row['content']?></p>
+                            <p class="text-justify"><?=$result['content']?></p>
                             <hr class="w-25 text-left row justify-content-start">
                         </div>
                     </div>
-                    <?php
-                        endwhile;
-                    ?>
                     <div class="row justify-content-start">
                         <div class="col-12">                            
                             <small>Published at <?=date_format($date,"d F Y");?></small>
@@ -84,7 +64,7 @@
                 <?php 
                         mysqli_close($db);
                     else:
-                        headTo("pagenotfound.php");
+                        headTo("interface/pagenotfound.php");
                     endif;
                 ?>
     </div>
