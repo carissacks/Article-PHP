@@ -2,8 +2,6 @@
     include './include/header.php';
     include './include/db_connection.php';
 
-    date_default_timezone_set("Asia/Jakarta");
-
     if(isset($_GET['type'])):
         $type = $db->real_escape_string($_GET['type']);
     else:
@@ -32,25 +30,30 @@
             <div class="child-container container">
                 <section id="archive">
                     <div class="row justify-content-center w-100 text-center my-3">
-                        <!-- <i class="archive-icon icon-block-featured"></i> -->
+                        <i class="archive-icon icon-block-featured"></i>
                         <h1 class="title"><?=$type?></h1>
                     </div>
 
                     <div class="archive-items">
-
                         <?php
-                            $query= "SELECT * FROM $tabelDatabase LIMIT 9";
+                            $page = $_GET['page'];
+                            $q = "SELECT COUNT(*) AS `count` FROM `ms_category_$type`";
+                            $hasil = $db->query($q);
+                            $data = mysqli_fetch_assoc($hasil);
+                            $last = ceil($data['count']/9);
+
+                            if($page > $last){
+                                $page = $last;
+                            }
+
+                            $offsetVal = ($page-1)*9;
+
+                            $query= "SELECT * FROM $tabelDatabase LIMIT 9 OFFSET $offsetVal";
                             $result= $db->query($query);
 
-                            // var_dump($result);
                             $idx=0;
 
-                            // var_dump($result);
-                            // if($result>0){
-                            //     echo"ok";
-                            // }else echo"gakok";
-
-                            while($row= $result->fetch_assoc()):
+                            while($row = $result->fetch_assoc()):
                                 $date=date_create($row['date']);
                                 if($idx%3==0):
                         ?>
@@ -61,7 +64,7 @@
                                     <div class="box-image">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                    <h2><a href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
                                     </h2>
                                     <span class="content-date">
                                         <time class="meta-text" datetime="<?= $row['date']?>">
@@ -71,7 +74,7 @@
                                 </header>
                                 <p class=""><?= substr($row['content'], 0, 100)?>...</p>
                                 <p class="view-all">
-                                    <a  href="post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
+                                    <a  href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>
@@ -84,6 +87,9 @@
                     </div>
                 </section>
             </div>
+            <?php
+                include "pagination.php";
+            ?>
         </div>
     </section>
     <!-- footer -->
