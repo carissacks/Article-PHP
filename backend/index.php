@@ -88,11 +88,24 @@
                     <h1 class="title"><?=$category?></h1>
                 </div>
                 <div class="row justify-content-end w-100">
-                    <form method="POST" action="addForm.php">
-                        <input name="type" type="text" value="<?=$type?>" hidden>
-                        <button class="btn btn-primary" type="submit" name="createNew"><i
-                                class='glyphicon glyphicon-plus'></i> Add new</button>
-                    </form>
+                <?php
+                            if(strcmp($type,"photos")){
+                        ?>
+                        <form method="POST" action="addForm.php">
+                            <input name="type" type="text" value="<?=$type?>" hidden>
+                            <button class="btn btn-primary" type="submit" name="createNew"><i class='glyphicon glyphicon-plus'></i> Add new</button>
+                        </form>
+                        <?php
+                            }
+                            else{
+                        ?>
+                        <form method="POST" action="addPhotosForm.php">
+                            <input name="type" type="text" value="<?=$type?>" hidden>
+                            <button class="btn btn-primary" type="submit" name="createNew"><i class='glyphicon glyphicon-plus'></i> Add new</button>
+                        </form>
+                        <?php 
+                            } 
+                        ?>
                 </div>
                 <div class="row my-md-4 mx-0 justify-content-center w-100">
                     <table class="table table-hover table-striped table-bordered m-0 p-0" id="myTable"
@@ -113,27 +126,25 @@
                             while($row = $result->fetch_assoc()):
                                 $count++;
                         ?>
-                            <tr>
-                                <td><?=$count?></td>
-                                <td><?= substr($row['title'],0, 50)?></td>
-                                <td><?= substr($row['content'], 0, 150) ?> ...</td>
-                                <td><?=$row['date']?></td>
-                                <td>
-                                    <form action="./cms/delContent.php" method="POST">
-                                        <input type="text" name="id" required value="<?=$row['id']?>" hidden>
-                                        <input type="text" name="type" required value="<?=$type?>" hidden>
-                                        <button type="submit" class="btn btn-primary mt-2"><i
-                                                class='glyphicon glyphicon-trash'></i></button>
-                                    </form>
-                                    <form action="updateForm.php" method="POST">
-                                        <input type="text" name="id" required value="<?=$row['id']?>" hidden>
-                                        <input type="text" name="type" required value="<?=$type?>" hidden>
-                                        <button class="btn btn-primary mt-2"><i
-                                                class='glyphicon glyphicon-pencil'></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <?php   
+                                <tr>
+                                    <td><?=$count?></td>
+                                    <td><?= substr($row['title'],0, 50)?></td>
+                                    <td><?= substr($row['content'], 0, 150) ?></td>
+                                    <td><?=$row['date']?></td>
+                                    <td>
+                                        <form action="./cms/delContent.php" method="POST">
+                                            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                            <input type="text" name="type" value="<?=$type?>" hidden>
+                                            <button type="submit" class="btn btn-primary mt-2"><i class='glyphicon glyphicon-trash'></i></button>
+                                        </form>
+                                        <form action="updateForm.php" method="POST">
+                                            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                            <input type="text" name="type" value="<?=$type?>" hidden>
+                                            <button class="btn btn-primary mt-2"><i class='glyphicon glyphicon-pencil'></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <?php   
                             endwhile;
                             mysqli_free_result($result);
                             mysqli_close($db);
