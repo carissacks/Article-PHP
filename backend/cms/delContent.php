@@ -6,7 +6,7 @@
 		// $type = $db->real_escape_string($_POST['type']);
 		$type = $_POST['type'];
 
-		include '../include/databaseTable.php';
+		include '../../include/databaseTable.php';
 
 		// $id = $db->real_escape_string($_POST['id']);
 		$id = $_POST['id'];
@@ -17,10 +17,10 @@
 		if($result == true):
 			var_dump($id);
 			var_dump($tabelDatabase);
-			headTo("interface/cms.php");
+			headTo("backend/index.php");
 		endif;
 	else:
-		headTo("interface/cms.php");
+		headTo("backend/index.php");
 	endif;
 
 ?>

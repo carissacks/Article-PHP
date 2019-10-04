@@ -45,7 +45,7 @@
             <div class="col-md-10 col-12 p-4" id="content">
                 <div class="container">
                     <div class="row w-100">
-                        <h1 class="title"><?=$type?></h1>
+                        <h1 class="title white"><?=$type?></h1>
                     </div>
                     <div class="row justify-content-end w-100">
                         <form method="POST" action="addForm.php">

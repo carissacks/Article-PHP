@@ -84,7 +84,7 @@
                 <?php 
                         mysqli_close($db);
                     else:
-                        headTo("interface/pagenotfound.php");
+                        headTo("pagenotfound.php");
                     endif;
                 ?>
     </div>
