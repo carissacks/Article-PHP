@@ -2,10 +2,12 @@
     include './include/header.php';
     include './include/db_connection.php';
 
+    date_default_timezone_set("Asia/Jakarta");
+
     if(isset($_GET['type'])):
         $type = $db->real_escape_string($_GET['type']);
     else:
-        $type= 'featured';
+        $type= 'news';
     endif;
 
     include './include/databaseTable.php';
@@ -64,7 +66,7 @@
                                     <div class="box-image">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                    <h2><a href="./post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
                                     </h2>
                                     <span class="content-date">
                                         <time class="meta-text" datetime="<?= $row['date']?>">
@@ -74,7 +76,7 @@
                                 </header>
                                 <p class=""><?= substr($row['content'], 0, 100)?>...</p>
                                 <p class="view-all">
-                                    <a  href="./interface/post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
+                                    <a  href="./post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>

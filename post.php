@@ -1,6 +1,6 @@
 <?php 
-    include '../include/header.php';
-    include '../include/db_connection.php';
+    include './include/header.php';
+    include './include/db_connection.php';
 
     date_default_timezone_set("Asia/Jakarta");
 
@@ -20,7 +20,7 @@
 
                     if(isset($_GET['type'],$_GET['id'])):
                         $type = $db->real_escape_string($_GET['type']);
-                        include '../include/databaseTable.php';
+                        include './include/databaseTable.php';
                     
                         $id = $db->real_escape_string($_GET['id']);
 
@@ -35,27 +35,86 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-12">
-                    <?php
-                        $id = $_GET['id'];
-                        $tableDatabase = "ms_category_" . $type;
-                        $tabel = $tableDatabase . "_images";
-                        $query = "SELECT * FROM $tabel WHERE page_id = '$id'";
-                        $result = $db->query($query);
-
-                        while($row = $result->fetch_assoc()): 
-                    ?>
                     <div class="row justify-content-center my-md-3 my-2">
-                        <img class="img-fluid" src="<?= $row['imageUrl']?>" alt="cover-img">
+                        <?php
+                            if($result['cover_img'])
+                                echo "<img class='img-fluid' src=".$result['cover_img']." alt='cover-img'>";
+                        ?>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-11 m-2 p-0">
-                            <p class="text-justify"><?=$row['content']?></p>
-                            <hr class="w-25 text-left row justify-content-start">
+                            <?php
+                                if($result['content'])
+                                    echo "<p class='text-justify'>".$result['content']."</p>
+                                          <hr class='w-25 text-left row justify-content-start'>";
+                            ?>                            
                         </div>
                     </div>
-                    <?php
-                        endwhile;
-                    ?>
+
+                    <div class="row justify-content-center my-md-3 my-2">
+                        <?php
+                            if($result['image_2'])
+                                echo "<img class='img-fluid' src=".$result['image_2']." alt='cover-img'>";
+                        ?>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 m-2 p-0">
+                            <?php
+                                if($result['content_2'])
+                                    echo "<p class='text-justify'>".$result['content_2']."</p>
+                                          <hr class='w-25 text-left row justify-content-start'>";
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center my-md-3 my-2">
+                        <?php
+                            if($result['image_3'])
+                                echo "<img class='img-fluid' src=".$result['image_3']." alt='cover-img'>";
+                        ?>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 m-2 p-0">
+                            <?php
+                                if($result['content_3'])
+                                    echo "<p class='text-justify'>".$result['content_3']."</p>
+                                          <hr class='w-25 text-left row justify-content-start'>";
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center my-md-3 my-2">
+                        <?php
+                            if($result['image_4'])
+                                echo "<img class='img-fluid' src=".$result['image_4']." alt='cover-img'>";
+                        ?>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 m-2 p-0">
+                            <?php
+                                if($result['content_4'])
+                                    echo "<p class='text-justify'>".$result['content_4']."</p>
+                                          <hr class='w-25 text-left row justify-content-start'>";
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center my-md-3 my-2">
+                        <?php
+                            if($result['image_5'])
+                                echo "<img class='img-fluid' src=".$result['image_5']." alt='cover-img'>";
+                        ?>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 m-2 p-0">
+                            <?php
+                                if($result['content_5'])
+                                    echo "<p class='text-justify'>".$result['content_5']."</p>
+                                          <hr class='w-25 text-left row justify-content-start'>";
+                            ?>
+                        </div>
+                    </div>
+
                     <div class="row justify-content-start">
                         <div class="col-12">                            
                             <small>Published at <?=date_format($date,"d F Y");?></small>
