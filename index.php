@@ -10,20 +10,9 @@
 
     include './include/databaseTable.php';
 ?>
+
 <body>
-    <!-- header -->
-    <header>
-		<nav class="navbar navbar-default">
-			<div style="display: flex; justify-content: space-between; width: 80%">
-				<div class="navbar-header">
-					<h4 style="color: grey"> UMN </h4>
-				</div>
-				<ul class="navbar-nav">
-					<li class="navbar-right active"><a href="#">Student</a></li> 
-				</ul>
-			</div>
-		</nav>
-	</header>
+    <?php include "navbar.php"?>
 
     <section id="article-container" class="container-fluid">
         <div class="container-fluid">
@@ -53,7 +42,7 @@
                                 if($idx%3==0):
                         ?>
                         <div class='row py-2'>
-                                <?php endif; ?>
+                            <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12" id="">
                                 <header>
                                     <div class="box-image">
@@ -69,7 +58,7 @@
                                 </header>
                                 <p class=""><?= substr($row['content'], 0, 100)?>...</p>
                                 <p class="view-all">
-                                    <a  href="post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
+                                    <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>

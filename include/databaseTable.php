@@ -24,7 +24,8 @@
         $tabelDatabase = "ms_category_bookreview";
     }
     else{
-        header("Location: ".headerAddress()."interface/pagenotfound.php");
+        headTo("pagenotfound.php");
+        // header("Location: ".headerAddress()."interface/pagenotfound.php");
     }
 
 ?>
