@@ -15,26 +15,26 @@
 
 <body>
     <?php include "navbar.php"?>
-    <section id="article-container" class="container-fluid">
+    <section class="container-fluid pb-5 mb-md-5">
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mx-3" style="background-color: transparent;">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active"><?=$type?></li>
+            <li class="breadcrumb-item active"><?=$category?></li>
         </ol>
     </nav>
 
         <div class="container-fluid">
             <div class="child-container container">
                 <section id="archive">
-                    <div class="row justify-content-center text-center mb-5">
+                    <div class="row justify-content-center text-center mb-md-5 mb-3">
                         <i class="archive-icon icon-block-featured"></i>
-                        <h1 class="title"><?=$type?></h1>
+                        <h1 class="title"><?=$category?></h1>
                     </div>
 
                     <div class="archive-items">
                         <div class='row py-md-2 py-0'>
-                            
+
                         <?php
                             if (!isset($_GET['page'])){
                                 $page=1;
@@ -62,8 +62,8 @@
                         ?>
                         <!-- <div class='row py-md-2 py-0'> -->
                             <?php endif; ?>
-                            <article class="col-md-4 col-sm-6 col-xs-12" id="">
-                                <header>
+                            <article class="col-md-4 col-sm-6 col-xs-12 mt-3" id="">
+                                <div class="mb-4">
                                     <div class="box-image mb-3">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
@@ -74,10 +74,10 @@
                                             <?= date_format($date,"d F Y");?>
                                         </time>
                                     </span>
-                                </header>
+                                </div>
                                 <p class=""><?= substr($row['content'], 0, 100)?>...</p>
-                                <p class="view-all">
-                                    <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>">Read More &GT;</a>
+                                <p class="view-all text-center">
+                                    <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>" class="read-more">Read More &GT;</a>
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>

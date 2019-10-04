@@ -1,5 +1,4 @@
 <?php
-$last=30;
 	if($last-$page > $page-1) $pagement = 1;
     else $pagement = -2;
 ?>

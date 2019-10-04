@@ -5,14 +5,17 @@
         $type = $db->real_escape_string($_GET['type']);
     endif;
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 0%;">
-    <!-- <div class="navbar-header navbar-brand">
-        <h4 class="white" height="100%">UMN Category</h4>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-md-4" style="border-radius: 0%;">
+    <div class="navbar-header">
+        <h2 class="white" height="100%" style="white-space: nowrap;">UMN Category</h2>
+    <!-- <img src="http://adada.info/wp/wp-content/uploads/2017/06/umn-e1497107134312.png" -->
+                                <!-- class="img-fluid col-5 col-md-12" alt="logo umn"> -->
+                            <!-- <h3 class=" m-0 mt-0 mt-md-3 white col-5 col-md-12 align-self-center text-center">Category</h3> -->
+</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button> -->
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item <?php echo ($type=='featured')?'active':''?>">

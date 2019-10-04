@@ -54,3 +54,11 @@ li{
 .breadcrumb-item{
   text-transform: capitalize;
 }
+
+.content{
+  text-indent: 3%;
+}
+
+.read-more{
+  font-weight: bold;
+}
