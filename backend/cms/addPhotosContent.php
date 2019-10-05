@@ -2,7 +2,6 @@
 	include '../../include/db_connection.php';
 	include '../../include/function.php';
 
-	$idxImage = $_POST['idxImage'];	
 	$idxContent = $_POST['idxContent'];
 	$type = $_POST['type'];
 	$id = $_POST['id'];
@@ -10,7 +9,7 @@
 	$date = $_POST['date'];
     $publisher = $_POST['publisher'];
     
-	$content = $_POST['content'];
+	$content = $_POST['description'];
 	$updated = '0';
 	$image = $_FILES['coverimg']['name'];
 	$img = $_FILES['coverimg']['tmp_name'];
@@ -28,7 +27,7 @@
 
 	$images = array();
 	$imagesTmp = array();
-	for($i=1;$i<$idxImage;$i++)
+	for($i=1;$i<$idxContent;$i++)
 	{
 		$images[$i] = $_FILES['idImage-'.$i]['name'];
 		$imagesTmp[$i] = $_FILES['idImage-'.$i]['tmp_name'];

@@ -3,14 +3,15 @@
 	include '../../include/function.php';
 
 	if(isset($_POST['type'])):
-		// $type = $db->real_escape_string($_POST['type']);
 		$type = $_POST['type'];
 
 		include '../../include/databaseTable.php';
 
-		// $id = $db->real_escape_string($_POST['id']);
 		$id = $_POST['id'];
-	
+		
+		$path = "images/".$type."/".$_POST['file'];
+		unlink($path) or die("Failed to <strong class='highlight'>delete</strong> file");
+
 		$query = "DELETE FROM $tabelDatabase WHERE id = '$id'";
 		$result = $db->query($query);
 	
@@ -20,7 +21,6 @@
 			headTo("backend/index.php");
 		endif;
 	else:
-		headTo("backend/index.php");
-	endif;
-
+			headTo("backend/index.php");
+		endif;
 ?>
