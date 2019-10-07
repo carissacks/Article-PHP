@@ -1,9 +1,19 @@
 <?php include '../include/header.php' ?>
 <?php 
+	include '../include/db_connection.php';
+
+	date_default_timezone_set("Asia/Jakarta");
+	
 	if(isset($_GET['failed']))
 	{
 		echo "<script> alert('Insert photos failed') </script>";
 	}
+
+	if(isset($_POST['type'])):
+        $type = $db->real_escape_string($_POST['type']);
+    else:
+        $type= 'featured';
+    endif;
 ?>
 <script>
 	var idxImage = 1;
@@ -53,6 +63,28 @@
 	}
 </script>
 <body>
+	<?php 
+		include '../include/databaseTable.php'; 
+		$query = "SELECT * FROM $tabelDatabase";
+		$result = $db->query($query);
+
+		$count = mysqli_num_rows($result);
+		$count--;
+		$query_last_item = "SELECT * FROM $tabelDatabase LIMIT 1 OFFSET $count";    // query data terakhir di tabel -> dapet id data terakhir
+		$result_last_item = $db->query($query_last_item);
+
+		if($result_last_item)
+		{
+			while($row = $result_last_item->fetch_assoc()){
+				$id = $row['id'];
+			}
+			$id++;
+		}
+		else
+		{
+			$id = strtoupper(substr($type, 0, 1)) . "01";
+		}
+	?>
 	<header>
 		<nav class="navbar navbar-default">
 			<div style="display: flex; justify-content: space-between; width: 80%">
@@ -78,7 +110,7 @@
 			<br>
 			<div class="form-group">
 				<label for="id">ID</label>
-                <input type="text" class="input form-control" name="id" required placeholder="Insert ID">
+                <input type="text" class="input form-control" name="id" disabled value="<?php echo $id ?>">
 			</div>
 			<div class="form-group">
 				<label for="title">Title</label>
@@ -104,6 +136,7 @@
 
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $_POST['type']; ?>">
+			<input type="text" class="input form-control" name="id" hidden placeholder="Insert ID">
 			<div id="sendIndex">
 
 			</div>
