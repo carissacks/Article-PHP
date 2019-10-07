@@ -1,3 +1,31 @@
+a{
+  text-decoration: none;
+  color: #5e5e5e;
+}
+p{
+  font-size: 2vh;
+}
+
+#post-title{
+  font-size: 3.5vh;
+  font-weight: normal;
+  color: #0098D7;
+  text-transform: uppercase;
+}
+
+small{
+  font-size: 1.75vh;
+  color: #9b9b9b;
+}
+
+li{
+  font-size: 2vh;
+}
+
+time{
+  font-size: 0.5vh;
+  color: #9b9b9b;
+}
 #sidebar {
   background-color: #171717;
 }
@@ -21,9 +49,28 @@
   width: 100%;
 }
 
-#title {
+#mainTitle {
   text-transform: capitalize;
   color: #0098D7;
+  font-size: 4vh;
+}
+
+#title a{
+  text-decoration: none;
+  color: #5e5e5e;
+  font-size: 2.5vh;
+  text-transform: capitalize;
+}
+
+.read-more:hover{
+  color: #f48b31;
+}
+
+.read-more{
+  color: #0098D7;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.75vh;
 }
 
 .btnPagination {
@@ -31,26 +78,11 @@
   margin-right: 1%;
 }
 
-p{
-  font-size: 2vh;
-}
-
-h1{
-  font-size: 2vh;
-  color: #0098D7;
-}
-
-small{
-  font-size: 1.5vh;
-}
-
 .abc {
   text-transform: uppercase;
 }
 
-li{
-  font-size: 2vh;
-}
+
 
 .breadcrumb-item{
   text-transform: capitalize;
@@ -60,6 +92,39 @@ li{
   text-indent: 3%;
 }
 
-.read-more{
-  font-weight: bold;
+.pagination-item{
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
+
+input[type="submit"].active {
+  
+  background-color: #dddddd;
+  border: #9b9b9b;
+}
+
+input[type="submit"].page-item{
+  /* border: #9b9b9b; */
+  height: auto;
+  padding: 0.75vh;
+  line-height: 0.75vh;
+
+}
+
+.active{
+  color: #0098D7 !important;
+}
+
+.related-title{
+  text-transform: uppercase;
+}
+
+.related-content li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #0098D7; /* Change the color */
+  font-weight: bolder; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }

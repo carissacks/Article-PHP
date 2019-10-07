@@ -1,5 +1,6 @@
 <?php 
-    include './include/header.php';
+    // include './include/header.php';
+    include 'header.php';
     include './include/db_connection.php';
 
     date_default_timezone_set("Asia/Jakarta");
@@ -9,11 +10,8 @@
     else:
         $type= 'news';
     endif;
-?>
 
-<body>
-<?php
-    include "navbar.php";
+    // include "navbar.php";
     $count = 0;
 
     if(isset($_GET['type'],$_GET['id'])):
@@ -31,31 +29,30 @@
             <ol class="breadcrumb mx-3" style="background-color: transparent;">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active"><a href="index.php?type=<?=$type?>"><?=$category?></a></li>
-                <li class="breadcrumb-item active"><?=$result['title']?></li>
+                <li class="breadcrumb-item active"><?=substr($result['title'], 0, 25)?>...</li>
             </ol>
         </nav>
 
         <div class="container-fluid">
             <div class="row justify-content-center my-4">
-                <div class="col-md-9 col-11">
-                    <h1 class="text-center"><?=$result['title']?></h1>
+                <div class="col-md-6 col-11">
+                    <h1 class="text-center" id="post-title"><?=$result['title']?></h1>
                 </div>
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-9 col-12">
+                    <div class="col-md-7 col-12">
                         <div class="row justify-content-center my-md-3 my-2">
                             <?php
                                 if($result['cover_img'])
-                                    echo "<img class='img-fluid' src=".$result['cover_img']." alt='cover-img'>";
+                                    echo "<img class='img-fluid' src='backend/cms/images/".$type."/".$result['cover_img']."' alt='cover-img'>";
                             ?>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-11 m-2 p-0">
                                 <?php
                                     if($result['content'])
-                                        echo "<p class='text-justify content'>".$result['content']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
+                                        echo "<p class='text-justify content'>".$result['content']."</p>";
                                 ?>                            
                             </div>
                         </div>
@@ -64,7 +61,7 @@
                                     if($result['image_'.$i]):
                             ?>
                         <div class='row justify-content-center my-md-3 my-2'>
-                            <img class='img-fluid' src="<?=$result['image_'.$i]?>" alt='cover-img'>
+                            <img class='img-fluid' src="backend/cms/images/<?=$type?>/<?=$result['image_'.$i]?>" alt='cover-img'>
                         </div>
                                     <?php endif; ?>
 
@@ -73,71 +70,28 @@
                                 ?>
                         <div class="row justify-content-center">
                             <div class="col-11 m-2 p-0">
-                                <p class='text-justify content'><?=$result['content_'.$i]?>"</p>
-                                <hr class='w-25 text-left row justify-content-start'>";
+                                <p class='text-justify content'><?=$result['content_'.$i]?></p>
                             </div>
                         </div>
                                     <?php endif;
                                 endfor;?>
+<hr class='w-25 text-left row justify-content-start'>
 
-                        <!-- <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_3'])
-                                    echo "<img class='img-fluid' src=".$result['image_3']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_3'])
-                                        echo "<p class='text-justify content'>".$result['content_3']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_4'])
-                                    echo "<img class='img-fluid' src=".$result['image_4']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_4'])
-                                        echo "<p class='text-justify content'>".$result['content_4']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_5'])
-                                    echo "<img class='img-fluid' src=".$result['image_5']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_5'])
-                                        echo "<p class='text-justify content'>".$result['content_5']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div> -->
 
                         <div class="row justify-content-start py-2">
                             <div class="col-12">                            
-                                <small>Published at <?=date_format($date,"d F Y");?></small>
+                                <small>Published at : <?=date_format($date,"d F Y");?>
+                                <?php if($result['updated']!=0):?>
+                                    <span class="active">- Updated</span>
+                                <?php endif;?>
+                                </small>
                             </div>
                         </div>
                         <div class="row justify-content-start py-2">
                             <div class="col-12">
-                            <hr class="w-100">
-                                <h5>Related Content</h5>
-                                <ul>
+                                <hr class="w-100">
+                                <small class="related-title my-3">Related Content</small>
+                                <ul class="related-content">
                                 <?php
                                     $year=date_format($date,"Y");
                                     $query1= "SELECT * FROM $tabelDatabase WHERE date LIKE '$year%' AND id !='$id'";
@@ -148,7 +102,7 @@
 
                                     while($row= $related->fetch_assoc()):
                                 ?>
-                                    <li><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?=$row['title']?></a></li>
+                                    <li class="ml-4"><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?=$row['title']?></a></li>
                                 <?php endwhile;?>
                                 </ul>
                             </div>
@@ -164,5 +118,6 @@
                     ?>
         </div>
     </section>
-</body>
-</html>
+<?php
+    include 'footer.php';
+?>

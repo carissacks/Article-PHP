@@ -59,7 +59,6 @@
 				<label for="content">Content</label>
                 <input type="text" class="input form-control" name="content" value="<?php echo $content?>" required placeholder="Insert Content">
 			</div>
-
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type?>">
 			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden>
 			<button type="submit" class="btn btn-primary">Submit</button>

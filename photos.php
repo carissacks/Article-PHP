@@ -1,5 +1,5 @@
 <?php 
-    include './include/header.php';
+    include 'header.php';
     include './include/db_connection.php';
 
     date_default_timezone_set("Asia/Jakarta");
@@ -123,6 +123,6 @@
                     endif;
                 ?>
     </div>
-</body>
-
-</html>
+<?php
+    include 'footer.php';
+?>

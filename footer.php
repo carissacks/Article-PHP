@@ -15,9 +15,9 @@
                         </div><!-- col-md-6 -->
                         <div class="col-md-6 col-sm-6 info-right">
                             <ul class="flat-information">
-                            <li><span>P:</span><a href=""> +62-21-5422-0808</a></li>
-                            <li><span>E:</span><a href=""> marketing@umn.ac.id</a></li>
-                            <li><span>A:</span><a href=""> Jl. Scientia Boulevard, Gading, Serpong, Tangerang, Banten</a></li>
+                            <li class="white"><span>P:</span>+62-21-5422-0808</li>
+                            <li class="white"><span>E:</span>marketing@umn.ac.id</li>
+                            <li class="white"><span>A:</span>Jl. Scientia Boulevard, Gading, Serpong, Tangerang, Banten</li>
                         </ul>
                         </div><!-- col-md-6 -->
                     </div><!-- row -->

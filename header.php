@@ -2,8 +2,7 @@
 <?php
 	include './include/function.php';
 ?>
-<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+
 <head>
     <title>Accounting UMN</title>
     <!-- Basic Page Needs -->
@@ -16,7 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" >
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Categpry Style -->
     <link rel="stylesheet" type="text/css" href="stylesheets/category.css">
@@ -32,9 +35,6 @@
 
     <!-- Animation Style -->
     <link rel="stylesheet" type="text/css" href="stylesheets/flexslider.css">
-
-    <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
     
     <!-- Animation Style -->
     <link rel="stylesheet" type="text/css" href="stylesheets/revolution-slider.css">
@@ -45,19 +45,13 @@
     <!-- Animation Style -->
     <link rel="stylesheet" type="text/css" href="stylesheets/shortcode.css">
 
-     <!-- REVOLUTION LAYERS STYLES -->
+    <!-- REVOLUTION LAYERS STYLES -->
     <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
     <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
 
     <!-- Favicon and touch icons  -->
     <link href="images/web/logo1.png" rel="shortcut icon">
-    <link rel="stylesheet" href="<?=headerAddress()?>/style.css">
 
-    
-    <!--[if lt IE 9]>
-        <script src="javascript/html5shiv.js"></script>
-        <script src="javascript/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
     <!-- Preloader -->
@@ -223,16 +217,16 @@
                                             <li><a href="#">JOB PORTAL</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" title="">Category</a>
+                                    <li><a href="index.php" title="">Category</a>
                                         <ul class="submenu">
-                                            <li><a href="index.php?type=featured&page=1">Featured</a></li>
-                                            <li><a href="index.php?type=events&page=1">Events</a></li>
-                                            <li><a href="index.php?type=news&page=1">News</a></li>
-                                            <li><a href="index.php?type=articles&page=1">Articles</a></li>
-                                            <li><a href="index.php?type=photos&page=1">Photos</a></li>
-                                            <li><a href="index.php?type=accountingupdate&page=1">Accounting Update</a></li>
-                                            <li><a href="index.php?type=research&page=1">Research</a></li>
-                                            <li><a href="index.php?type=bookreview&page=1">Book Review</a></li>
+                                            <li><a href="index.php?type=featured&page=1">FEATURED</a></li>
+                                            <li><a href="index.php?type=events&page=1">EVENTS</a></li>
+                                            <li><a href="index.php?type=news&page=1">NEWS</a></li>
+                                            <li><a href="index.php?type=articles&page=1">ARTICLES</a></li>
+                                            <li><a href="index.php?type=photos&page=1">PHOTOS</a></li>
+                                            <li><a href="index.php?type=accountingupdate&page=1">ACCOUNTING UPDATE</a></li>
+                                            <li><a href="index.php?type=research&page=1">RESEARCH</a></li>
+                                            <li><a href="index.php?type=bookreview&page=1">BOOK REVIEW</a></li>
                                         </ul>
                                     </li>
                                 </ul>
