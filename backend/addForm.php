@@ -4,7 +4,7 @@
 
 	date_default_timezone_set("Asia/Jakarta");
 	
-	if(isset($_GET['failed']))
+	if(isset($_POST['failed']))
 	{
 		echo "<script> alert('Insert photos failed') </script>";
 	}
@@ -89,7 +89,7 @@
 		<nav class="navbar navbar-default">
 			<div style="display: flex; justify-content: space-between; width: 80%">
 				<div class="navbar-header">
-					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".$_POST['type']."</span>"?></h4>
+					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".ucfirst($type)."</span>"?></h4>
 				</div>
 				<ul class="navbar-nav">
 					<li class="navbar-right active"><a href="#">Student</a></li> 
@@ -98,7 +98,7 @@
 		</nav>
 	</header>
     <div class="container">
-		<form id="formAdd" class="form" action="./cms/addContent.php" method="POST" enctype="multipart/form-data">
+		<form id="formAdd" class="form" action="./cms/addContent.php" method="GET" enctype="multipart/form-data">
 			<div style="float:right">
 				<button class="btn btn-primary" onclick="addImage()">Add Image</button>
 				<button class="btn btn-primary" onclick="addContent()">Add Content</button>

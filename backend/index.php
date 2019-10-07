@@ -167,7 +167,7 @@
         //     // $(idType).addClass("active");
         //     $('#idPost').val($(this).attr('id'));
         //     window.location.href = "index.php?type=" + $(this).attr('id');
-        // })
+        })
     </script>
 </body>
 
