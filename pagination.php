@@ -59,6 +59,6 @@
         window.location = "?page=" + $(this).val();
     })
     $(document).ready(function () {
-        $('#page<?=$page?>').addClass('active white bg-dark');
+        $('#page<?=$page?>').addClass('active');
     })
 </script>
