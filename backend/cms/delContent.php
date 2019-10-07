@@ -6,18 +6,30 @@
 		$type = $_POST['type'];
 
 		include '../../include/databaseTable.php';
-
+		
 		$id = $_POST['id'];
 		
-		$path = "images/".$type."/".$_POST['file'];
-		unlink($path) or die("Failed to <strong class='highlight'>delete</strong> file");
-
+		$query = "SELECT cover_img, image_2, image_3, image_4, image_5 FROM $tabelDatabase WHERE id = '$id'";
+		$images = $db->query($query);
+		
+		while($row = $images->fetch_assoc()){
+			$path = "images/".$type."/".$row['cover_img'];
+			unlink($path) or die("Failed to <strong class='highlight'>delete</strong> file");
+			for($i = 2; $i <= 5; $i++){
+				if(empty($row['image_'.$i])){
+					break;
+				}
+				$path = "images/".$type."/".$row['image_'.$i];
+				unlink($path) or die("Failed to <strong class='highlight'>delete</strong> file");
+				
+			}
+		}
+	
+		
 		$query = "DELETE FROM $tabelDatabase WHERE id = '$id'";
 		$result = $db->query($query);
 	
 		if($result == true):
-			var_dump($id);
-			var_dump($tabelDatabase);
 			headTo("backend/index.php");
 		endif;
 	else:

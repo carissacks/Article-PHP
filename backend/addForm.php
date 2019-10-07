@@ -24,7 +24,7 @@
 		if(idxImage <= 4){
 			document.getElementById('newImg').innerHTML += 
 			"<div id='img-"+idxImage+"'class='form-group'> <label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
-                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' required>"+
+                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='image/*' required>"+
             "</div>";
             idxImage+=1;
 		}
@@ -91,7 +91,7 @@
             </div>
             <div class="form-group">
 				<label for="cover">Cover Image</label>
-                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image">
+                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image" accept="image/*">
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>
@@ -103,7 +103,7 @@
 			<div id="newContent">
 
 			</div>
-			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type ?>">
+			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $_POST['type']; ?>">
 			<div id="sendIndex">
 
 			</div>

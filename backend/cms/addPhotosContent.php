@@ -15,10 +15,11 @@
 	$img = $_FILES['coverimg']['tmp_name'];
 	$filepath = "images/".$type."/".$image;
 	
+
 	$contents = array();
 	for($i=1;$i<$idxContent;$i++)
 	{
-		$contents[$i] = $_POST['idContent-'.$i];
+		$contents[$i] = $_POST['idDesc-'.$i];
 	}
 	for(;$i<5;$i++)
 	{
@@ -39,7 +40,7 @@
 	}
 
 	$filepathextend = array();
-	for($j=1;$j<$idxImage;$j++)
+	for($j=1;$j<$idxContent;$j++)
 	{
 		$filepathextend[$j] = "images/".$type."/".$images[$j];
 	}
@@ -48,9 +49,8 @@
 	$result = $db->query($query);
 	
 	move_uploaded_file($img, $filepath);
-	for($j=1;$j<$idxImage;$j++)
+	for($j=1;$j<$idxContent;$j++)
 	{
-		echo $filepathextend[$j];
 		move_uploaded_file($imagesTmp[$j], $filepathextend[$j]);
 	}
 	if($result)
