@@ -82,7 +82,7 @@
 
 			</div>
 			<button type="submit" class="btn btn-primary" name="submit">Submit</button>
-			<button class="btn btn-secondary"><a href="home.php" style="color: white">Cancel</a></button>
+			<button class="btn btn-secondary"><a href="index.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>
 </body>

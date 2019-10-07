@@ -1,5 +1,6 @@
 <?php 
-    include './include/header.php';
+    // include './include/header.php';
+    include 'header.php';
     include './include/db_connection.php';
 
     date_default_timezone_set("Asia/Jakarta");
@@ -13,8 +14,8 @@
     include './include/databaseTable.php';
 ?>
 
-<body>
-    <?php include "navbar.php"?>
+<!-- <body> -->
+    <?php //include "navbar.php"?>
     <section class="container-fluid pb-5 mb-md-5">
 
     <nav aria-label="breadcrumb">
@@ -29,7 +30,7 @@
                 <section id="archive">
                     <div class="row justify-content-center text-center mb-md-5 mb-3">
                         <i class="archive-icon icon-block-featured"></i>
-                        <h1 class="title"><?=$category?></h1>
+                        <h1 id="title"><?=$category?></h1>
                     </div>
 
                     <div class="archive-items">
@@ -60,7 +61,7 @@
                                 $date=date_create($row['date']);
                                 if($idx%3==0):
                         ?>
-                        <!-- <div class='row py-md-2 py-0'> -->
+                        <div class='row py-md-2 py-0'>
                             <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12 mt-3" id="">
                                 <div class="mb-4">
@@ -81,7 +82,7 @@
                                 </p>
                             </article>
                             <?php if($idx%3==2): ?>
-                        <!-- </div> -->
+                        </div>
                         <?php 
                                 endif;
                                 $idx++;
@@ -97,4 +98,8 @@
         </div>
     </section>
     <!-- footer -->
-</body>
+<!-- </body> -->
+
+<?php
+    include 'footer.php';
+?>

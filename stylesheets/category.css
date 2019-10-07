@@ -21,8 +21,9 @@
   width: 100%;
 }
 
-.title {
+#title {
   text-transform: capitalize;
+  color: #0098D7;
 }
 
 .btnPagination {
@@ -35,8 +36,8 @@ p{
 }
 
 h1{
-  font-size: 5vh;
-  color: #1379f5;
+  font-size: 2vh;
+  color: #0098D7;
 }
 
 small{
