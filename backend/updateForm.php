@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
 				<label for="cover">Cover Image</label>
-                <input type="file" class="input form-control" name="coverimg" value="<?php echo $coverimg?>" required placeholder="Insert Cover Image" accept='image/*'>
+                <input type="file" class="input form-control" name="coverimg" value="<?php echo $coverimg?>" required placeholder="Insert Cover Image"  accept='.jpg, .jpeg, .png'>
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>

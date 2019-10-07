@@ -13,7 +13,7 @@
 			document.getElementById('newContent').innerHTML += 
 			"<div id='content-"+idxContent+"'>"+
 				"<div id='img-"+idxContent+"'class='form-group'> <label for='idImg-"+idxContent+"'>Image-"+idxContent+"</label>"+
-	                "<input type='file' class='input form-control' name='idImage-"+idxContent+"' required accept='image/*'>"+
+	                "<input type='file' class='input form-control' name='idImage-"+idxContent+"' required accept='.jpg, .jpeg, .png'"+
 	            "</div>"+
 	            "<div id='desc-"+idxContent+"'class='form-group'> <label for='idDesc-"+idxContent+"'>Desc-"+idxContent+"</label>"+
 	                "<input type='text' class='input form-control' name='idDesc-"+idxContent+"' required placeholder='Insert Desc-"+idxContent+"'>"+
@@ -68,7 +68,7 @@
             </div>
             <div class="form-group">
 				<label for="cover">Cover Image</label>
-                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image" accept="image/*">
+                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image"  accept='.jpg, .jpeg, .png'>
 			</div>
             <div class="form-group">
 				<label for="content">Description</label>
