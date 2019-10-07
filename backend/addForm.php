@@ -22,7 +22,6 @@
 		if(idxImage > 1){
 			document.getElementById('img-'+(--idxImage)).remove();
 		}
-		console.log(idxImage);
 	}
 
 	function deleteContent(){
