@@ -115,6 +115,7 @@
                             <th>ID</th>
                             <th>Title</th>
                             <th>Content</th>
+                            <th>Publisher</th>
                             <th>Modified date</th>
                             <th></th>
                         </thead>
@@ -132,6 +133,7 @@
                                     <td><?=$row['id']?></td>
                                     <td><?= substr($row['title'],0, 50)?></td>
                                     <td><?= substr($row['content'], 0, 150) ?></td>
+                                    <td><?=$row['publisher']?></td>
                                     <td><?=$row['date']?></td>
                                     <td>
                                         <form action="./cms/delContent.php" method="POST">
@@ -169,7 +171,7 @@
         //     // $(idType).addClass("active");
         //     $('#idPost').val($(this).attr('id'));
         //     window.location.href = "index.php?type=" + $(this).attr('id');
-        })
+        // })
     </script>
 </body>
 

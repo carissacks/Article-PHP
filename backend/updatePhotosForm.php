@@ -124,10 +124,6 @@
 				<input type="text" class="input form-control" name="title" value="<?php echo $title?>" required placeholder="Insert Title">
 			</div>
 			<div class="form-group">
-				<label for="date">Date</label>
-                <input type="date" class="input form-control" name="date" value="<?php echo $date?>" required placeholder="Insert Date">
-			</div>
-			<div class="form-group">
 				<label for="publisher">Publisher</label>
 				<input type="text" class="input form-control" name="publisher" value="<?php echo $publisher?>" required placeholder="Insert Publisher">
             </div>
@@ -151,9 +147,10 @@
 
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type?>">
-			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden placeholder="Insert ID">
+			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden>
+			<input type="date" class="input form-control" name="date" value="<?=date("Y-m-d")?>" hidden>
 			<button type="submit" class="btn btn-primary" onclick="sendIndex()">Submit</button>
-			<button class="btn btn-secondary"><a href="<?=headerAddress()?>index.php" style="color: white">Cancel</a></button>
+			<button class="btn btn-secondary"><a href="<?=headerAddress()?>/backend/index.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>
 </body>

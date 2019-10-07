@@ -82,7 +82,7 @@
 	{
 		// header("Location:".headerAddress()."cms.php");
 		
-		headTo("backend/index.php");
+		headTo("backend/index.php?type=".$type);
 	}
 	else
 	{
