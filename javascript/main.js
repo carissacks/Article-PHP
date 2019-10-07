@@ -678,7 +678,7 @@
         retinaLogos();
         GoTop();
         removePreloader();
-     });
+    });
 
 })(jQuery);
 
