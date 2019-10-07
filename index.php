@@ -15,8 +15,8 @@
 ?>
 
 <!-- <body> -->
-    <?php //include "navbar.php"?>
-    <section class="container-fluid pb-5 mb-md-5">
+<?php //include "navbar.php"?>
+<section class="container-fluid pb-5 mb-md-5">
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mx-3" style="background-color: transparent;">
@@ -25,16 +25,16 @@
         </ol>
     </nav>
 
-        <div class="container-fluid">
-            <div class="child-container container">
-                <section id="archive">
-                    <div class="row justify-content-center text-center mb-md-5 mb-3">
-                        <i class="archive-icon icon-block-featured"></i>
-                        <h1 id="title"><?=$category?></h1>
-                    </div>
+    <div class="container-fluid">
+        <div class="child-container container">
+            <section id="archive">
+                <div class="row justify-content-center text-center mb-md-5 mb-3">
+                    <i class="archive-icon icon-block-featured"></i>
+                    <h1 id="mainTitle"><?=$category?></h1>
+                </div>
 
-                    <div class="archive-items">
-                        <div class='row py-md-2 py-0'>
+                <div class="archive-items">
+                    <div class='row py-md-2 py-0'>
 
                         <?php
                             if (!isset($_GET['page'])){
@@ -61,43 +61,47 @@
                                 $date=date_create($row['date']);
                                 if($idx%3==0):
                         ?>
-                        <div class='row py-md-2 py-0'>
+                        <div class="w-100 d-none d-md-inline"></div>
+                        <!-- <div class='row py-md-2 py-0'> -->
                             <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12 mt-3" id="">
                                 <div class="mb-4">
-                                    <div class="box-image mb-3">
+                                    <div class="mb-3">
                                         <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
                                     </div>
-                                    <h2><a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
-                                    </h2>
-                                    <span class="content-date">
-                                        <time class="meta-text" datetime="<?= $row['date']?>">
-                                            <?= date_format($date,"d F Y");?>
-                                        </time>
-                                    </span>
-                                </div>
-                                <p class=""><?= substr($row['content'], 0, 100)?>...</p>
-                                <p class="view-all text-center">
-                                    <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>" class="read-more">Read More &GT;</a>
-                                </p>
+                                    <h2 id="title" class="text-justify"><a
+                                            href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                        </h5>
+                                        <span class="content-date">
+                                            <time class="meta-text mb-4" datetime="<?= $row['date']?>">
+                                                <?= date_format($date,"d F Y");?>
+                                            </time>
+                                        </span>
+                                    <!-- </div> -->
+                                        <p class="pt-2 text-justify"><?= substr($row['content'], 0, 150)?>...</p>
+                                        <p class="view-all text-center mt-3">
+                                            <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"
+                                                class="read-more">Read More &GT;</a>
+                                        </p>
+                                        
                             </article>
                             <?php if($idx%3==2): ?>
-                        </div>
+                        <!-- </div> -->
                         <?php 
                                 endif;
                                 $idx++;
                             endwhile;
                         ?>
-                        </div>
                     </div>
-                </section>
-                <?php
+                </div>
+            </section>
+            <?php
                 include "pagination.php";
             ?>
-            </div>
         </div>
-    </section>
-    <!-- footer -->
+    </div>
+</section>
+<!-- footer -->
 <!-- </body> -->
 
 <?php
