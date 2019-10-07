@@ -34,7 +34,7 @@
 		if(idxImage <= 4){
 			document.getElementById('newImg').innerHTML += 
 			"<div id='img-"+idxImage+"'class='form-group'> <label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
-                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' required>"+
+                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='.jpg, .jpeg, .png' required>"+
             "</div>";
             idxImage+=1;
 		}
@@ -123,7 +123,7 @@
             </div>
             <div class="form-group">
 				<label for="cover">Cover Image</label>
-                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image">
+                <input type="file" class="input form-control" name="coverimg" required placeholder="Insert Cover Image"  accept='.jpg, .jpeg, .png'>
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>
