@@ -41,7 +41,8 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-7 col-12">
+                    <div class="col-md-10 col-lg-8 col-12">
+                        <?php if($type!='photos'):?>
                         <div class="row justify-content-center my-md-3 my-2">
                             <?php
                                 if($result['cover_img'])
@@ -50,10 +51,9 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content'])
-                                        echo "<p class='text-justify content'>".$result['content']."</p>";
-                                ?>                            
+                                <?php if($result['content']): ?>
+                                <p class="text-justify content"><?=$result['content']?></p>
+                                <?php endif;?>                            
                             </div>
                         </div>
                             <?php
@@ -75,9 +75,48 @@
                         </div>
                                     <?php endif;
                                 endfor;?>
-<hr class='w-25 text-left row justify-content-start'>
 
+                            <?php else: ##PHOTOS?> 
 
+                    <?php if($result['content']) : ?>
+                        <div class="row m-md-3 justify-content-start">
+                            <div class="m-2 p-0 col-md-2 col-10 text-right d-none d-md-inline">
+                                <hr class='w-100 m-0 text-right row justify-content-end'>
+                                <p class="photo_desc"><i><?=$result['content']; ?></i></p>
+                            </div>
+
+                            <div class="col-md-9 col-12 m-2 p-0">
+                                <img class="img-fluid" src="backend/cms/images/<?=$type?>/<?=$result['cover_img'] ?>" alt="cover-img">
+                            </div>
+
+                            <div class="m-2 p-0 col-md-2 col-12 text-center d-inline d-md-none">
+                                <p class="photo_desc"><i><?=$result['content']; ?></i></p>
+                            </div>
+
+                            <div class="w-100 my-3 d-none d-md-inline"></div>
+
+                            <?php
+                                for($i=2; $i<6; $i++):
+                                    if($result['image_'.$i]):
+                            ?>
+                            <div class="m-2 p-0 col-md-2 col-10 text-right d-none d-md-inline">
+                                <hr class='w-100 m-0 text-right row justify-content-end'>
+                                <p class="photo_desc"><i><?=$result['content_'.$i]; ?></i></p>
+                            </div>
+                            <div class="col-md-9 col-12 m-2 p-0">
+                                <img class='img-fluid' src="backend/cms/images/<?=$type?>/<?=$result['image_'.$i]?>" alt='cover-img'>
+                            </div>
+                            <div class="m-2 p-0 col-md-2 col-12 text-center d-inline d-md-none">
+                                <p class="photo_desc"><i><?=$result['content_'.$i]; ?></i></p>
+                            </div>
+                            <div class="w-100 my-3 text-right text-centerd-none d-md-inline"></div>
+                            <?php endif;
+                                endfor;?>
+                        </div>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    
+                    <hr class='w-25 text-left row justify-content-start'>
                         <div class="row justify-content-start py-2">
                             <div class="col-12">                            
                                 <small>Published at : <?=date_format($date,"d F Y");?>
@@ -87,6 +126,7 @@
                                 </small>
                             </div>
                         </div>
+
                         <div class="row justify-content-start py-2">
                             <div class="col-12">
                                 <hr class="w-100">

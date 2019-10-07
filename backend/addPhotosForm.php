@@ -1,4 +1,20 @@
-<?php include '../include/header.php' ?>
+<?php
+	include '../include/header.php';
+	include '../include/db_connection.php';
+
+	date_default_timezone_set("Asia/Jakarta");
+	
+	if(isset($_GET['failed']))
+	{
+		echo "<script> alert('Insert photos failed') </script>";
+	}
+
+	if(isset($_POST['type'])):
+        $type = $db->real_escape_string($_POST['type']);
+    else:
+        $type= 'featured';
+    endif;
+?>
 <script>
 	var idxContent = 1;
 
@@ -13,7 +29,7 @@
 			document.getElementById('newContent').innerHTML += 
 			"<div id='content-"+idxContent+"'>"+
 				"<div id='img-"+idxContent+"'class='form-group'> <label for='idImg-"+idxContent+"'>Image-"+idxContent+"</label>"+
-	                "<input type='file' class='input form-control' name='idImage-"+idxContent+"' required accept='.jpg, .jpeg, .png'"+
+	            	"<input type='file' class='input form-control' name='idImage-"+idxContent+"' required accept='.jpg, .jpeg, .png'"+
 	            "</div>"+
 	            "<div id='desc-"+idxContent+"'class='form-group'> <label for='idDesc-"+idxContent+"'>Desc-"+idxContent+"</label>"+
 	                "<input type='text' class='input form-control' name='idDesc-"+idxContent+"' required placeholder='Insert Desc-"+idxContent+"'>"+
@@ -32,30 +48,47 @@
 	}
 </script>
 <body>
-	<header>
+	<?php 
+		include '../include/databaseTable.php'; 
+		$query = "SELECT * FROM $tabelDatabase";
+		$result = $db->query($query);
+
+		$count = mysqli_num_rows($result);
+		$count--;
+		$query_last_item = "SELECT * FROM $tabelDatabase LIMIT 1 OFFSET $count";    // query data terakhir di tabel -> dapet id data terakhir
+		$result_last_item = $db->query($query_last_item);
+
+		if($result_last_item)
+		{
+			while($row = $result_last_item->fetch_assoc()){
+				$id = $row['id'];
+			}
+			$id++;
+		}
+		else
+		{
+			$id = strtoupper(substr($type, 0, 2)). "01";
+		}
+	?>
+
+<header>
 		<nav class="navbar navbar-default">
 			<div style="display: flex; justify-content: space-between; width: 80%">
 				<div class="navbar-header">
-					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".$_POST['type']."</span>" ?> </h4>
+					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".$_POST['type']."</span>"?></h4>
 				</div>
-				<ul class="navbar-nav">
-					<li class="navbar-right active"><a href="#">Student</a></li> 
-				</ul>
 			</div>
 		</nav>
 	</header>
     <div class="container">
+		<div class="mb-5 text-right">
+			<button class="btn btn-primary" onclick="addContent()">Add Content</button>
+			<button class="btn btn-primary" onclick="deleteContent()">Delete Content</button>
+		</div>
 		<form class="form" action="./cms/addPhotosContent.php" method="POST" enctype="multipart/form-data">
-			<div style="float:right">
-				<button class="btn btn-primary" onclick="addContent()">Add Content</button>
-				<button class="btn btn-primary" onclick="deleteContent()">Delete Content</button>
-			</div>
-			<br>
-			<br>
-			<br>
 			<div class="form-group">
 				<label for="id">ID</label>
-                <input type="text" class="input form-control" name="id" required placeholder="Insert ID">
+                <input type="text" class="input form-control" name="id" disabled value="<?= $id ?>">
 			</div>
 			<div class="form-group">
 				<label for="title">Title</label>
@@ -78,11 +111,12 @@
 
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $_POST['type'] ?>">
+			<input type="text" class="input form-control" name="id" hidden value="<?= $id ?>">
 			<div id="sendIndex">
 
 			</div>
 			<button type="submit" class="btn btn-primary" name="submit" onclick="sendIndex()">Submit</button>
-			<button class="btn btn-secondary"><a href="index.php" style="color: white">Cancel</a></button>
+			<button class="btn btn-secondary"><a href="index.php?type=<?=$type?>" style="color: white">Cancel</a></button>
 		</form>
 	</div>
 </body>

@@ -59,6 +59,6 @@
 	}
 	if($result)
 	{
-		headTo("backend/index.php");
+		headTo("backend/index.php?type=".$type);
 	}
 ?>

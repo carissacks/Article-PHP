@@ -112,6 +112,7 @@
                         style="width:100%">
                         <thead>
                             <th>#</th>
+                            <th>ID</th>
                             <th>Title</th>
                             <th>Content</th>
                             <th>Modified date</th>
@@ -128,6 +129,7 @@
                         ?>
                                 <tr>
                                     <td><?=$count?></td>
+                                    <td><?=$row['id']?></td>
                                     <td><?= substr($row['title'],0, 50)?></td>
                                     <td><?= substr($row['content'], 0, 150) ?></td>
                                     <td><?=$row['date']?></td>

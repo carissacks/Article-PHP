@@ -6,13 +6,6 @@ p{
   font-size: 2vh;
 }
 
-#post-title{
-  font-size: 3.5vh;
-  font-weight: normal;
-  color: #0098D7;
-  text-transform: uppercase;
-}
-
 small{
   font-size: 1.75vh;
   color: #9b9b9b;
@@ -28,6 +21,33 @@ time{
 }
 #sidebar {
   background-color: #171717;
+}
+
+
+#post-title{
+  font-size: 3.5vh;
+  font-weight: normal;
+  color: #0098D7;
+  text-transform: uppercase;
+}
+
+#mainTitle {
+  text-transform: capitalize;
+  color: #0098D7;
+  font-size: 4vh;
+}
+
+#title a{
+  text-decoration: none;
+  color: #5e5e5e;
+  font-size: 2.5vh;
+  text-transform: capitalize;
+}
+
+.title{
+  color: #0098D7;
+  /* font-size: 4vh; */
+  text-transform: capitalize;
 }
 
 .list-group-item[aria-expanded="true"] {
@@ -47,19 +67,6 @@ time{
 
 .dataTables_wrapper {
   width: 100%;
-}
-
-#mainTitle {
-  text-transform: capitalize;
-  color: #0098D7;
-  font-size: 4vh;
-}
-
-#title a{
-  text-decoration: none;
-  color: #5e5e5e;
-  font-size: 2.5vh;
-  text-transform: capitalize;
 }
 
 .read-more:hover{
@@ -82,8 +89,6 @@ time{
   text-transform: uppercase;
 }
 
-
-
 .breadcrumb-item{
   text-transform: capitalize;
 }
@@ -98,6 +103,32 @@ time{
   color: white;
 }
 
+.active{
+  color: #0098D7 !important;
+}
+
+.related-title{
+  text-transform: uppercase;
+}
+
+.related-content li::before {
+  content: "\2022";
+  color: #0098D7;
+  font-weight: bolder;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.related-content{
+  text-transform: capitalize;
+  font-size: 2.25vh;
+}
+
+.photo_desc{
+  font-style: italic;
+}
+
 input[type="submit"].active {
   
   background-color: #dddddd;
@@ -110,21 +141,4 @@ input[type="submit"].page-item{
   padding: 0.75vh;
   line-height: 0.75vh;
 
-}
-
-.active{
-  color: #0098D7 !important;
-}
-
-.related-title{
-  text-transform: uppercase;
-}
-
-.related-content li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #0098D7; /* Change the color */
-  font-weight: bolder; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
