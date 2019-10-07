@@ -23,7 +23,7 @@
                 $date = $row['date'];
                 $publisher = $row['publisher'];
                 $coverimg = $row['cover_img'];
-                $content = $row['content'];
+				$content = $row['content'];
             }
 
 			mysqli_free_result($result);
@@ -59,8 +59,9 @@
 				<label for="content">Content</label>
                 <input type="text" class="input form-control" name="content" value="<?php echo $content?>" required placeholder="Insert Content">
 			</div>
+			
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type?>">
-			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden placeholder="Insert ID">
+			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden>
 			<button type="submit" class="btn btn-primary">Submit</button>
 			<button class="btn btn-secondary"><a href="<?=headerAddress()?>index.php" style="color: white">Cancel</a></button>
 		</form>

@@ -103,7 +103,7 @@
 			<div id="newContent">
 
 			</div>
-			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type ?>">
+			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $_POST['type']; ?>">
 			<div id="sendIndex">
 
 			</div>

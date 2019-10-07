@@ -45,7 +45,7 @@
 		</nav>
 	</header>
     <div class="container">
-		<form class="form" action="./cms/addContent.php" method="POST" enctype="multipart/form-data">
+		<form class="form" action="./cms/addPhotosContent.php" method="POST" enctype="multipart/form-data">
 			<div style="float:right">
 				<button class="btn btn-primary" onclick="addContent()">Add Content</button>
 				<button class="btn btn-primary" onclick="deleteContent()">Delete Content</button>
@@ -77,11 +77,11 @@
 			<div id="newContent">
 
 			</div>
-			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type ?>">
+			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $_POST['type'] ?>">
 			<div id="sendIndex">
 
 			</div>
-			<button type="submit" class="btn btn-primary" name="submit">Submit</button>
+			<button type="submit" class="btn btn-primary" name="submit" onclick="sendIndex()">Submit</button>
 			<button class="btn btn-secondary"><a href="index.php" style="color: white">Cancel</a></button>
 		</form>
 	</div>
