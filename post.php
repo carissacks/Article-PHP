@@ -45,15 +45,14 @@
                         <div class="row justify-content-center my-md-3 my-2">
                             <?php
                                 if($result['cover_img'])
-                                    echo "<img class='img-fluid' src=".$result['cover_img']." alt='cover-img'>";
+                                    echo "<img class='img-fluid' src='backend/cms/images/".$type."/".$result['cover_img']."' alt='cover-img'>";
                             ?>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-11 m-2 p-0">
                                 <?php
                                     if($result['content'])
-                                        echo "<p class='text-justify content'>".$result['content']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
+                                        echo "<p class='text-justify content'>".$result['content']."</p>";
                                 ?>                            
                             </div>
                         </div>
@@ -62,7 +61,7 @@
                                     if($result['image_'.$i]):
                             ?>
                         <div class='row justify-content-center my-md-3 my-2'>
-                            <img class='img-fluid' src="<?=$result['image_'.$i]?>" alt='cover-img'>
+                            <img class='img-fluid' src="backend/cms/images/<?=$type?>/<?=$result['image_'.$i]?>" alt='cover-img'>
                         </div>
                                     <?php endif; ?>
 
@@ -71,60 +70,13 @@
                                 ?>
                         <div class="row justify-content-center">
                             <div class="col-11 m-2 p-0">
-                                <p class='text-justify content'><?=$result['content_'.$i]?>"</p>
-                                <hr class='w-25 text-left row justify-content-start'>";
+                                <p class='text-justify content'><?=$result['content_'.$i]?></p>
                             </div>
                         </div>
                                     <?php endif;
                                 endfor;?>
+<hr class='w-25 text-left row justify-content-start'>
 
-                        <!-- <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_3'])
-                                    echo "<img class='img-fluid' src=".$result['image_3']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_3'])
-                                        echo "<p class='text-justify content'>".$result['content_3']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_4'])
-                                    echo "<img class='img-fluid' src=".$result['image_4']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_4'])
-                                        echo "<p class='text-justify content'>".$result['content_4']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-center my-md-3 my-2">
-                            <?php
-                                if($result['image_5'])
-                                    echo "<img class='img-fluid' src=".$result['image_5']." alt='cover-img'>";
-                            ?>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-11 m-2 p-0">
-                                <?php
-                                    if($result['content_5'])
-                                        echo "<p class='text-justify content'>".$result['content_5']."</p>
-                                                <hr class='w-25 text-left row justify-content-start'>";
-                                ?>
-                            </div>
-                        </div> -->
 
                         <div class="row justify-content-start py-2">
                             <div class="col-12">                            

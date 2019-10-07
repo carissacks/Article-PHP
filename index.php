@@ -34,8 +34,6 @@
                 </div>
 
                 <div class="archive-items">
-                    <div class='row py-md-2 py-0'>
-
                         <?php
                             if (!isset($_GET['page'])){
                                 $page=1;
@@ -57,21 +55,25 @@
 
                             $idx=0;
 
-                            while($row = $result->fetch_assoc()):
-                                $date=date_create($row['date']);
-                                if($idx%3==0):
+                            if($result):
                         ?>
+                        <div class='row py-md-2 py-0'>
+                            <?php
+                                while($row = $result->fetch_assoc()):
+                                    $date=date_create($row['date']);
+                                    if($idx%3==0):
+                            ?>
                         <div class="w-100 d-none d-md-inline"></div>
                         <!-- <div class='row py-md-2 py-0'> -->
-                            <?php endif; ?>
+                                    <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12 mt-3" id="">
                                 <div class="mb-4">
                                     <div class="mb-3">
-                                        <img src="<?= $row['cover_img']?>" alt="" class="img-fluid">
+                                        <img src="backend/cms/images/<?=$type?>/<?= $row['cover_img']?>" alt="cover-img" class="img-fluid">
                                     </div>
-                                    <h2 id="title" class="text-justify"><a
-                                            href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
-                                        </h5>
+                                    <h2 id="title" class="text-justify">
+                                        <a href="post.php?type=<?=$type?>&id=<?= $row['id']?>"><?= $row['title']?></a>
+                                    </h2>
                                         <span class="content-date">
                                             <time class="meta-text mb-4" datetime="<?= $row['date']?>">
                                                 <?= date_format($date,"d F Y");?>
@@ -91,6 +93,11 @@
                                 endif;
                                 $idx++;
                             endwhile;
+                            else:?>
+                            <div class='row py-md-2 py-0 justify-content-center'>
+                                <p>No content</p>
+                        <?php
+                        endif;
                         ?>
                     </div>
                 </div>

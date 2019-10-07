@@ -10,7 +10,7 @@
         <input id='page1' type='submit' class='page-item page-link' value='1'>
 
     <?php
-    if($last != 1){
+    if($last != 1 && $last>0){
         if($page-3 > 1)
             echo "<p class='m-0 mx-2'> ... </p>";
         if(($page == 1 || $page == $last) && ($page+1 != $last && $last-1 != 1)){
@@ -56,7 +56,7 @@
 
 <script>
     $('.page-item').click(function () {
-        window.location = "?page=" + $(this).val();
+        window.location = "?type=<?=$type?>&page=" + $(this).val();
     })
     $(document).ready(function () {
         $('#page<?=$page?>').addClass('active');
