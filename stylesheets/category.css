@@ -121,10 +121,19 @@ input[type="submit"].page-item{
 }
 
 .related-content li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #0098D7; /* Change the color */
-  font-weight: bolder; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  content: "\2022";
+  color: #0098D7;
+  font-weight: bolder;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.related-content{
+  text-transform: capitalize;
+  font-size: 2.25vh;
+}
+
+.photo_desc{
+  font-style: italic;
 }
