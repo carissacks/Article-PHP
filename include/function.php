@@ -1,9 +1,9 @@
 <?php
     function headerAddress(){
-        return "http://localhost/utspemweb/";
+        return 'http://localhost/utspemweb/';
     }
 
     function headTo($url){
-        header("Location: https://localhost/utspemweb/".$url);
+        header('Location: https://localhost/utspemweb/'.$url);
     }
 ?>
