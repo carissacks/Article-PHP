@@ -38,7 +38,7 @@
             mysqli_close($db);
 		}
 		else{
-			header("Location: ".headerAddress()."interface/pagenotfound.php");
+			header("Location : ".headerAddress()."interface/pagenotfound.php");
 		}
 	?>
 	<script>
