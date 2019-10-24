@@ -3,7 +3,7 @@
     include '../include/db_connection.php';
 
     if(isset($_GET['type'])):
-        $type = $db->real_escape_string($_GET['type']);
+        $type = $_GET['type'];
     else:
         $type= 'featured';
     endif;
@@ -17,15 +17,7 @@
                 <nav class="navbar navbar-dark py-4 m-0" style="border-radius: 0%;">
                     <div class="navbar-header py-md-5">
                         <h2 class="white" height="100%">UMN Category</h2>
-                        <!-- <img src="http://adada.info/wp/wp-content/uploads/2017/06/umn-e1497107134312.png" -->
-                        <!-- class="img-fluid col-5 col-md-12" alt="logo umn"> -->
-                        <!-- <div class="container-fluid"> -->
-                        <!-- <div class="row justify-content-center mb-md-5">
-                            <img src="http://adada.info/wp/wp-content/uploads/2017/06/umn-e1497107134312.png"
-                                class="img-fluid col-12 col-md-12" alt="logo umn"> -->
-                        <!-- <h3 class=" m-0 mt-0 mt-md-3 white col-5 col-md-12 align-self-center text-center">Category</h3> -->
                     </div>
-                    <!-- <div class="row justify-content-center"> -->
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,27 +52,7 @@
                         </ul>
                     </div>
                 </nav>
-                        <!-- <div class="list-group col-8 col-md-12">
-                                <button id="featured"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Featured</button>
-                                <button id="events"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Events</button>
-                                <button id="news"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">News</button>
-                                <button id="articles"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Articles</button>
-                                <button id="photos"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Photos</button>
-                                <button id="accountingupdate"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Accounting Update</button>
-                                <button id="research"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Research</button>
-                                <button id="bookreview"
-                                    class="list-group-item list-group-item-action list-group-item-secondary type">Book Review</button>
-                            </div> -->
-
-                    <!-- </div> -->
-                </div>
+            </div>
             <!-- </div> -->
         <div class="col-md-10 col-12 p-4" id="content">
             <div class="container">
@@ -116,13 +88,13 @@
                             <th>Title</th>
                             <th>Content</th>
                             <th>Publisher</th>
-                            <th>Modified date</th>
+                            <th>Created Date</th>
                             <th></th>
                         </thead>
                         <tbody>
                             <?php
                             echo "<script>$('#".$type."').addClass('active')</script>";
-                            $query = "SELECT * FROM $tabelDatabase";
+                            $query = "SELECT * FROM $tabelDatabase ORDER BY date DESC";
                             $result = $db->query($query);
 
                             while($row = $result->fetch_assoc()):
@@ -141,11 +113,26 @@
                                             <input type="text" name="type" value="<?=$type?>" hidden>
                                             <button type="submit" class="btn btn-primary mt-2"><i class='glyphicon glyphicon-trash'></i></button>
                                         </form>
+                                        <?php
+                                            if(strcmp($type,"photos")){
+                                        ?>
                                         <form action="updateForm.php" method="POST">
                                             <input type="text" name="id" value="<?=$row['id']?>" hidden>
                                             <input type="text" name="type" value="<?=$type?>" hidden>
                                             <button class="btn btn-primary mt-2"><i class='glyphicon glyphicon-pencil'></i></button>
                                         </form>
+                                        <?php
+                                            }
+                                            else{
+                                        ?>
+                                        <form action="updatePhotosForm.php" method="POST">
+                                            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+                                            <input type="text" name="type" value="<?=$type?>" hidden>
+                                            <button class="btn btn-primary mt-2"><i class='glyphicon glyphicon-pencil'></i></button>
+                                        </form>
+                                        <?php 
+                                            } 
+                                        ?>
                                     </td>
                                 </tr>
                                 <?php   
@@ -164,14 +151,6 @@
         $(document).ready(function () {
         $('#myTable').DataTable();
         })
-
-        // $(".type").click(function () {
-        //     $(".type").removeClass("active");
-        //     // var idType = '#'+$(this).attr('id');
-        //     // $(idType).addClass("active");
-        //     $('#idPost').val($(this).attr('id'));
-        //     window.location.href = "index.php?type=" + $(this).attr('id');
-        // })
     </script>
 </body>
 

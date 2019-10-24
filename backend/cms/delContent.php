@@ -30,9 +30,9 @@
 		$result = $db->query($query);
 	
 		if($result == true):
-			headTo("backend/index.php");
+			headTo("../index.php?type=".$type);
 		endif;
 	else:
-			headTo("backend/index.php");
+			headTo("../index.php?type=".$type);
 		endif;
 ?>

@@ -73,12 +73,12 @@
                                 <p class='text-justify content'><?=$result['content_'.$i]?></p>
                             </div>
                         </div>
-                                    <?php endif;
+                                <?php endif;
                                 endfor;?>
 
-                            <?php else: ##PHOTOS?> 
+                        <?php else: ##PHOTOS?> 
 
-                    <?php if($result['content']) : ?>
+                            <?php if($result['content']) : ?>
                         <div class="row m-md-3 justify-content-start">
                             <div class="m-2 p-0 col-md-2 col-10 text-right d-none d-md-inline">
                                 <hr class='w-100 m-0 text-right row justify-content-end'>
@@ -109,12 +109,16 @@
                             <div class="m-2 p-0 col-md-2 col-12 text-center d-inline d-md-none">
                                 <p class="photo_desc"><i><?=$result['content_'.$i]; ?></i></p>
                             </div>
-                            <div class="w-100 my-3 text-right text-centerd-none d-md-inline"></div>
+                            <div class="w-100 my-3 text-right text-center d-none d-md-inline"></div>
                             <?php endif;
                                 endfor;?>
                         </div>
-                    <?php endif; ?>
-                    <?php endif; ?>
+                            <?php endif;
+                        endif; ?>
+                            <div class="mt-2">
+                                <p><b>By <?=$result['publisher']?></b></p>
+                            </div>
+                        <!--</div>-->
                     
                     <hr class='w-25 text-left row justify-content-start'>
                         <div class="row justify-content-start py-2">

@@ -1,9 +1,9 @@
 <?php
     function headerAddress(){
-        return 'http://localhost/utspemweb/';
+        return 'https://categoryumn.000webhostapp.com';
     }
 
     function headTo($url){
-        header('Location: https://localhost/utspemweb/'.$url);
+        header('Location: '.$url);
     }
 ?>

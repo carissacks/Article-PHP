@@ -6,9 +6,9 @@
     date_default_timezone_set("Asia/Jakarta");
 
     if(isset($_GET['type'])):
-        $type = $db->real_escape_string($_GET['type']);
+        $type = $_GET['type'];
     else:
-        $type= 'featured';
+        $type = 'featured';
     endif;
 
     include './include/databaseTable.php';
@@ -50,7 +50,7 @@
 
                             $offsetVal = ($page-1)*9;
 
-                            $query= "SELECT * FROM $tabelDatabase LIMIT 9 OFFSET $offsetVal";
+                            $query= "SELECT * FROM $tabelDatabase ORDER BY date DESC LIMIT 9 OFFSET $offsetVal";
                             $result= $db->query($query);
 
                             $idx=0;
@@ -68,7 +68,7 @@
                                     <?php endif; ?>
                             <article class="col-md-4 col-sm-6 col-xs-12 mt-3" id="">
                                 <div class="mb-4">
-                                    <div class="mb-3">
+                                    <div class="mb-3 cover-img">
                                         <img src="backend/cms/images/<?=$type?>/<?= $row['cover_img']?>" alt="cover-img" class="img-fluid">
                                     </div>
                                     <h2 id="title" class="text-justify">

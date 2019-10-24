@@ -140,5 +140,20 @@ input[type="submit"].page-item{
   height: auto;
   padding: 0.75vh;
   line-height: 0.75vh;
+}
 
+@media (min-width: 575.98px) { 
+  .cover-img{
+    height: 17vw;
+    overflow: hidden;
+    border: #8f8f8f 0.75px solid;
+  }
+}
+
+@media (min-width: 767.99px) {
+  .cover-img{
+    height: 12vw;
+    overflow: hidden;
+    border: #8f8f8f 0.75px solid;
+  }
 }

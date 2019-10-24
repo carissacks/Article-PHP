@@ -10,10 +10,11 @@
 	}
 
 	if(isset($_POST['type'])):
-        $type = $db->real_escape_string($_POST['type']);
+        $type = $_POST['type'];
     else:
         $type= 'featured';
     endif;
+    include '../include/databaseTable.php';
 ?>
 <script>
 	var idxImage = 1;
@@ -33,10 +34,13 @@
 
 	function addImage(){
 		if(idxImage <= 4){
-			document.getElementById('newImg').innerHTML += 
-			"<div id='img-"+idxImage+"'class='form-group'> <label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
-                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='.jpg, .jpeg, .png' required>"+
-            "</div>";
+		    var div= document.createElement('div');
+		    div.id= 'img-'+idxImage;
+		    div.className= 'form-group';
+		    div.innerHTML= "<label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
+                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='.jpg, .jpeg, .png' required>";
+			document.getElementById('newImg').append(div);
+			
             idxImage+=1;
 		}
 		else{
@@ -46,10 +50,12 @@
 
 	function addContent(){
 		if(idxContent <= 4){
-			document.getElementById('newContent').innerHTML += 
-			"<div id='content-"+idxContent+"'class='form-group'> <label for='idContent-"+idxContent+"'>Content-"+idxContent+"</label>"+
-                "<input type='text' class='input form-control' name='idContent-"+idxContent+"' required placeholder='Insert Content-"+idxContent+"'>"+
-            "</div>";
+		    var div= document.createElement('div');
+		    div.id= 'content-'+idxContent;
+		    div.className= 'form-group';
+			div.innerHTML="<label for='idContent-"+idxContent+"'>Content-"+idxContent+"</label>"+
+                "<textarea rows='5' class='input form-control' form='formAdd' name='idContent-"+idxContent+"' required placeholder='Insert Content-"+idxContent+"'></textarea>";
+            document.getElementById('newContent').append(div);
             idxContent+=1;
 		}
 		else{
@@ -83,14 +89,14 @@
 		}
 		else
 		{
-			$id = strtoupper(substr($type, 0, 2)) . "01";
+			$id = strtoupper(substr($type, 0, 2)) . "001";
 		}
 	?>
 	<header>
 		<nav class="navbar navbar-default">
 			<div style="display: flex; justify-content: space-between; width: 80%">
 				<div class="navbar-header">
-					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".ucfirst($type)."</span>"?></h4>
+					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".ucfirst($category)."</span>"?></h4>
 				</div>
 			</div>
 		</nav>
@@ -122,7 +128,7 @@
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>
-                <input type="text" class="input form-control" name="content" required placeholder="Insert Content">
+				<textarea rows="7" class="input form-control" name="content" required placeholder="Insert Content" form="formAdd"></textarea>
 			</div>
 			<div id="newImg">
 

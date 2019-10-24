@@ -10,7 +10,7 @@
 	}
 
 	if(isset($_POST['type'])):
-        $type = $db->real_escape_string($_POST['type']);
+        $type = $_POST['type'];
     else:
         $type= 'featured';
     endif;
@@ -26,15 +26,16 @@
 
 	function addContent(){
 		if(idxContent <= 4){
-			document.getElementById('newContent').innerHTML += 
-			"<div id='content-"+idxContent+"'>"+
+		    var div= document.createElement('div');
+		    div.id= 'content-'+idxContent;
+			div.innerHTML = 
 				"<div id='img-"+idxContent+"'class='form-group'> <label for='idImg-"+idxContent+"'>Image-"+idxContent+"</label>"+
 	            	"<input type='file' class='input form-control' name='idImage-"+idxContent+"' required accept='.jpg, .jpeg, .png'"+
 	            "</div>"+
 	            "<div id='desc-"+idxContent+"'class='form-group'> <label for='idDesc-"+idxContent+"'>Desc-"+idxContent+"</label>"+
 	                "<input type='text' class='input form-control' name='idDesc-"+idxContent+"' required placeholder='Insert Desc-"+idxContent+"'>"+
-	            "</div>"+
-	        "</div>";
+	            "</div>";
+            document.getElementById('newContent').append(div);
             idxContent+=1;
 		}
 		else{
@@ -71,11 +72,11 @@
 		}
 	?>
 
-<header>
+    <header>
 		<nav class="navbar navbar-default">
 			<div style="display: flex; justify-content: space-between; width: 80%">
 				<div class="navbar-header">
-					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>".$_POST['type']."</span>"?></h4>
+					<h4 style="color: grey"> Adding New Post to <?php echo "<span class='title'>Photos</span>"?></h4>
 				</div>
 			</div>
 		</nav>

@@ -42,45 +42,32 @@
 		}
 	?>
 	<script>
-		function onDocumentFinish(){	
+	    var idxImage = <?php echo (sizeof($images)+1) ?>;
+		var idxContent = <?php echo (sizeof($contents)+1) ?>;
+	    
+		function onDocumentFinish(){
 			if(1 <= <?php echo sizeof($images) ?>){
-				document.getElementById('newImg').innerHTML +=
+				document.getElementById('newContent').innerHTML +=
 				"<div id='img-"+(1)+"'class='form-group'> <label for='idImg-"+(1)+"'>Image-"+(1)+"</label>"+
 					"<br><div for='oldIdImg-"+(1)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>0) echo $images[1]?>"+"</strong></div>"+
 					"<input type='text' class='input form-control' name='oldidImage-"+(1)+"' value='<?php if(sizeof($images)>0) echo $images[1] ?>' hidden>"+
 	                "<input type='file' class='input form-control' name='idImage-"+(1)+"'>"+
 	            "</div>";
 			}
-			if(2 <= <?php echo sizeof($images) ?>){
-				document.getElementById('newImg').innerHTML +=
-				"<div id='img-"+(2)+"'class='form-group'> <label for='idImg-"+(2)+"'>Image-"+(2)+"</label>"+
-					"<br><div for='oldIdImg-"+(2)+"'> Before Update: <strong>"+"<?php  if(sizeof($images)>1) echo $images[2]?>"+"</strong></div>"+
-					"<input type='text' class='input form-control' name='oldidImage-"+(2)+"' value='<?php if(sizeof($images)>1) echo $images[2] ?>' hidden>"+
-	                "<input type='file' class='input form-control' name='idImage-"+(2)+"'>"+
-	            "</div>";
-			}
-			if(3 <= <?php echo sizeof($images) ?>){
-				document.getElementById('newImg').innerHTML +=
-				"<div id='img-"+(3)+"'class='form-group'> <label for='idImg-"+(3)+"'>Image-"+(3)+"</label>"+
-					"<br><div for='oldIdImg-"+(3)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>2) echo $images[3]?>"+"</strong></div>"+
-					"<input type='text' class='input form-control' name='oldidImage-"+(3)+"' value='<?php if(sizeof($images)>2)echo  $images[3] ?>' hidden>"+
-	                "<input type='file' class='input form-control' name='idImage-"+(3)+"'>"+
-	            "</div>";
-			}
-			if(4 <= <?php echo sizeof($images) ?>){
-				document.getElementById('newImg').innerHTML +=
-				"<div id='img-"+(4)+"'class='form-group'> <label for='idImg-"+(4)+"'>Image-"+(4)+"</label>"+
-					"<br><div for='oldIdImg-"+(4)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>3) echo $images[4]?>"+"</strong></div>"+
-					"<input type='text' class='input form-control' name='oldoidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>"+
-	                "<input type='file' class='input form-control' name='idImage-"+(4)+"'>"+
-	            "</div>";
-			}
-
 			if(1 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(1)+"'class='form-group'> <label for='idContent-"+(1)+"'>Desc-"+(1)+"</label>"+
 					"<br><div for='oldIdContent-"+(1)+"'>"+
 	                "<input type='text' class='input form-control' name='idContent-"+(1)+"' value="+"<?php if(sizeof($contents)>0) echo $contents[1]?>"+" required>"+
+	            "</div>";
+			}
+			
+			if(2 <= <?php echo sizeof($images) ?>){
+				document.getElementById('newContent').innerHTML +=
+				"<div id='img-"+(2)+"'class='form-group'> <label for='idImg-"+(2)+"'>Image-"+(2)+"</label>"+
+					"<br><div for='oldIdImg-"+(2)+"'> Before Update: <strong>"+"<?php  if(sizeof($images)>1) echo $images[2]?>"+"</strong></div>"+
+					"<input type='text' class='input form-control' name='oldidImage-"+(2)+"' value='<?php if(sizeof($images)>1) echo $images[2] ?>' hidden>"+
+	                "<input type='file' class='input form-control' name='idImage-"+(2)+"'>"+
 	            "</div>";
 			}
 			if(2 <= <?php echo sizeof($contents) ?>){
@@ -90,6 +77,15 @@
 	                "<input type='text' class='input form-control' name='idContent-"+(2)+"' value="+"<?php if(sizeof($contents)>1) echo $contents[2]?>"+" required>"+
 	            "</div>";
 			}
+			
+			if(3 <= <?php echo sizeof($images) ?>){
+				document.getElementById('newContent').innerHTML +=
+				"<div id='img-"+(3)+"'class='form-group'> <label for='idImg-"+(3)+"'>Image-"+(3)+"</label>"+
+					"<br><div for='oldIdImg-"+(3)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>2) echo $images[3]?>"+"</strong></div>"+
+					"<input type='text' class='input form-control' name='oldidImage-"+(3)+"' value='<?php if(sizeof($images)>2)echo  $images[3] ?>' hidden>"+
+	                "<input type='file' class='input form-control' name='idImage-"+(3)+"'>"+
+	            "</div>";
+			}
 			if(3 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(3)+"'class='form-group'> <label for='idContent-"+(3)+"'>Desc-"+(3)+"</label>"+
@@ -97,7 +93,16 @@
 	                "<input type='text' class='input form-control' name='idContent-"+(3)+"' value="+"<?php if(sizeof($contents)>2) echo $contents[3]?>"+" required>"+
 	            "</div>";
 			}
-			if(4 <= <?php echo sizeof($contents) ?>){
+			
+			if(4 <= <?php echo sizeof($images) ?>){
+				document.getElementById('newContent').innerHTML +=
+				"<div id='img-"+(4)+"'class='form-group'> <label for='idImg-"+(4)+"'>Image-"+(4)+"</label>"+
+					"<br><div for='oldIdImg-"+(4)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>3) echo $images[4]?>"+"</strong></div>"+
+					"<input type='text' class='input form-control' name='oldidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>"+
+	                "<input type='file' class='input form-control' name='idImage-"+(4)+"'>"+
+	            "</div>";
+			}
+            if(4 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(4)+"'class='form-group'> <label for='idContent-"+(4)+"'>Desc-"+(4)+"</label>"+
 					"<br><div for='oldIdContent-"+(4)+"'>"+
@@ -106,14 +111,82 @@
 			}
 		}	
 
-		function sendIndex(){
-			document.getElementById('sendIndex').innerHTML +=
-			"<input type='text' name='idxImage' value='"+"<?php echo sizeof($images)+1 ?>"+"' hidden>"+
-			"<input type='text' name='idxContent' value='"+"<?php echo sizeof($contents)+1 ?>"+"' hidden>";
-		}
+    	function deleteContent(){
+    		if(idxContent > 1){
+    		    document.getElementById('img-'+(--idxImage)).remove();
+    			document.getElementById('content-'+(--idxContent)).remove();
+    		}
+    	}
+    
+    	function addContent(){
+    	    if(idxImage <= 4){
+    		    var div= document.createElement('div');
+    		    div.id= 'img-'+idxImage;
+    		    div.className= 'form-group';
+    		    div.innerHTML= "<label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
+                    "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='.jpg, .jpeg, .png' required>";
+    			document.getElementById('newContent').append(div);
+                idxImage+=1;
+    		}
+    		if(idxContent <= 4){
+    		    var div= document.createElement('div');
+    		    div.id= 'content-'+idxContent;
+    		    div.className= 'form-group';
+    			div.innerHTML="<label for='idContent-"+idxContent+"'>Content-"+idxContent+"</label>"+
+                    "<input type='text' class='input form-control' name='idContent-"+idxContent+"' required placeholder='Insert Content-"+idxContent+"'>";
+                document.getElementById('newContent').append(div);
+                idxContent+=1;
+    		}
+    		else{
+    			alert("Content maximum capacity per article is 5");
+    		}
+    	}
+    
+    	function sendIndex(){
+    		document.getElementById('sendIndex').innerHTML +=
+    		"<input type='text' name='idxNewImage' value='"+idxImage+"' hidden>"+
+    		"<input type='text' name='idxNewContent' value='"+idxContent+"' hidden>"+
+    		"<input type='text' name='idxImage' value='"+<?=(sizeof($images)+1)?>+"' hidden>"+
+    		"<input type='text' name='idxContent' value='"+<?=(sizeof($contents)+1)?>+"' hidden>";
+    		if(idxImage < <?=(sizeof($images)+1)?>){
+    		    if(1 <= <?php echo sizeof($images) ?>){
+    				document.getElementById('sendIndex').innerHTML +=
+    				"<input type='text' class='input form-control' name='oldidImage-"+(1)+"' value='<?php if(sizeof($images)>0) echo $images[1] ?>' hidden>";
+    			}
+    			if(2 <= <?php echo sizeof($images) ?>){
+    				document.getElementById('sendIndex').innerHTML +=
+    				"<input type='text' class='input form-control' name='oldidImage-"+(2)+"' value='<?php if(sizeof($images)>1) echo $images[2] ?>' hidden>";
+    			}
+    			if(3 <= <?php echo sizeof($images) ?>){
+    				document.getElementById('sendIndex').innerHTML +=
+    				"<input type='text' class='input form-control' name='oldidImage-"+(3)+"' value='<?php if(sizeof($images)>2)echo  $images[3] ?>' hidden>";
+    			}
+    			if(4 <= <?php echo sizeof($images) ?>){
+    				document.getElementById('sendIndex').innerHTML +=
+    				"<input type='text' class='input form-control' name='oldidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>";
+    			}
+    		}
+    	}
 	</script>
+	
 <body onload="onDocumentFinish()">
+    
+    <header>
+		<nav class="navbar navbar-default">
+			<div style="display: flex; justify-content: space-between; width: 80%">
+				<div class="navbar-header">
+					<h4 style="color: grey"> Updating <?php echo "<span class='title'>".$_POST['type']."</span>"?> Post</h4>
+				</div>
+			</div>
+		</nav>
+	</header>
+    
     <div class="container">
+        <div class="mb-5 text-right">
+			<button class="btn btn-primary" onclick="addContent()">Add Content</button>
+			<button class="btn btn-primary" onclick="deleteContent()">Delete Content</button>
+		</div>
+		
 		<form class="form" action="./cms/updateContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
@@ -148,7 +221,7 @@
 			</div>
 			<input type="text" class="input form-control hidden" name="type" required value="<?php echo $type?>">
 			<input type="text" class="input form-control" name="id" value="<?php echo $id?>" hidden>
-			<input type="date" class="input form-control" name="date" value="<?=date("Y-m-d")?>" hidden>
+			<!--<input type="date" class="input form-control" name="date" value="<?=date("Y-m-d")?>" hidden>-->
 			<button type="submit" class="btn btn-primary" onclick="sendIndex()">Submit</button>
 			<button class="btn btn-secondary"><a href="<?=headerAddress()?>/backend/index.php" style="color: white">Cancel</a></button>
 		</form>

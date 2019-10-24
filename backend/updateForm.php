@@ -42,6 +42,9 @@
 		}
 	?>
 	<script>
+		var idxImage = <?php echo (sizeof($images)+1) ?>;
+		var idxContent = <?php echo (sizeof($contents)+1) ?>;
+		
 		function onDocumentFinish(){	
 			if(1 <= <?php echo sizeof($images) ?>){
 				document.getElementById('newImg').innerHTML +=
@@ -49,7 +52,7 @@
 					"<br><div for='oldIdImg-"+(1)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>0) echo $images[1]?>"+"</strong></div>"+
 					"<input type='text' class='input form-control' name='oldidImage-"+(1)+"' value='<?php if(sizeof($images)>0) echo $images[1] ?>' hidden>"+
 	                "<input type='file' class='input form-control' name='idImage-"+(1)+"'>"+
-	            "</div>";
+				"</div>";
 			}
 			if(2 <= <?php echo sizeof($images) ?>){
 				document.getElementById('newImg').innerHTML +=
@@ -57,7 +60,7 @@
 					"<br><div for='oldIdImg-"+(2)+"'> Before Update: <strong>"+"<?php  if(sizeof($images)>1) echo $images[2]?>"+"</strong></div>"+
 					"<input type='text' class='input form-control' name='oldidImage-"+(2)+"' value='<?php if(sizeof($images)>1) echo $images[2] ?>' hidden>"+
 	                "<input type='file' class='input form-control' name='idImage-"+(2)+"'>"+
-	            "</div>";
+				"</div>";
 			}
 			if(3 <= <?php echo sizeof($images) ?>){
 				document.getElementById('newImg').innerHTML +=
@@ -65,56 +68,137 @@
 					"<br><div for='oldIdImg-"+(3)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>2) echo $images[3]?>"+"</strong></div>"+
 					"<input type='text' class='input form-control' name='oldidImage-"+(3)+"' value='<?php if(sizeof($images)>2)echo  $images[3] ?>' hidden>"+
 	                "<input type='file' class='input form-control' name='idImage-"+(3)+"'>"+
-	            "</div>";
+				"</div>";
 			}
 			if(4 <= <?php echo sizeof($images) ?>){
 				document.getElementById('newImg').innerHTML +=
 				"<div id='img-"+(4)+"'class='form-group'> <label for='idImg-"+(4)+"'>Image-"+(4)+"</label>"+
 					"<br><div for='oldIdImg-"+(4)+"'> Before Update: <strong>"+"<?php if(sizeof($images)>3) echo $images[4]?>"+"</strong></div>"+
-					"<input type='text' class='input form-control' name='oldoidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>"+
+					"<input type='text' class='input form-control' name='oldidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>"+
 	                "<input type='file' class='input form-control' name='idImage-"+(4)+"'>"+
-	            "</div>";
+				"</div>";
 			}
 
 			if(1 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(1)+"'class='form-group'> <label for='idContent-"+(1)+"'>Content-"+(1)+"</label>"+
 					"<br><div for='oldIdContent-"+(1)+"'>"+
-	                "<input type='text' class='input form-control' name='idContent-"+(1)+"' value="+"<?php if(sizeof($contents)>0) echo $contents[1]?>"+" required>"+
-	            "</div>";
+	                "<textarea type='text' rows='5' form='formUpdate' class='input form-control' name='idContent-"+(1)+"'><?php if(sizeof($contents)>0) echo $contents[1]?></textarea>"+
+				"</div>";
 			}
 			if(2 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(2)+"'class='form-group'> <label for='idContent-"+(2)+"'>Content-"+(2)+"</label>"+
 					"<br><div for='oldIdContent-"+(2)+"'>"+
-	                "<input type='text' class='input form-control' name='idContent-"+(2)+"' value="+"<?php if(sizeof($contents)>1) echo $contents[2]?>"+" required>"+
-	            "</div>";
+	                "<textarea type='text' rows='5' form='formUpdate' class='input form-control' name='idContent-"+(2)+"'><?php if(sizeof($contents)>1) echo $contents[2]?></textarea>"+
+				"</div>";
 			}
 			if(3 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(3)+"'class='form-group'> <label for='idContent-"+(3)+"'>Content-"+(3)+"</label>"+
 					"<br><div for='oldIdContent-"+(3)+"'>"+
-	                "<input type='text' class='input form-control' name='idContent-"+(3)+"' value="+"<?php if(sizeof($contents)>2) echo $contents[3]?>"+" required>"+
-	            "</div>";
+	                "<textarea type='text' rows='5' form='formUpdate' class='input form-control' name='idContent-"+(3)+"'><?php if(sizeof($contents)>2) echo $contents[3]?></textarea>"+
+				"</div>";
 			}
 			if(4 <= <?php echo sizeof($contents) ?>){
 				document.getElementById('newContent').innerHTML +=
 				"<div id='content-"+(4)+"'class='form-group'> <label for='idContent-"+(4)+"'>Content-"+(4)+"</label>"+
 					"<br><div for='oldIdContent-"+(4)+"'>"+
-	                "<input type='text' class='input form-control' name='idContent-"+(4)+"' value="+"<?php if(sizeof($contents)>3) echo $contents[4]?>"+" required>"+
-	            "</div>";
+	                "<textarea type='text' rows='5' form='formUpdate' class='input form-control' name='idContent-"+(4)+"'><?php if(sizeof($contents)>3) echo $contents[4]?></textarea>"+
+				"</div>";
 			}
-		}	
-
-		function sendIndex(){
-			document.getElementById('sendIndex').innerHTML +=
-			"<input type='text' name='idxImage' value='"+"<?php echo sizeof($images)+1 ?>"+"' hidden>"+
-			"<input type='text' name='idxContent' value='"+"<?php echo sizeof($contents)+1 ?>"+"' hidden>";
 		}
+
+	function deleteImage(){
+		if(idxImage > 1){
+			document.getElementById('img-'+(--idxImage)).remove();
+		}
+	}
+
+	function deleteContent(){
+		if(idxContent > 1){
+			document.getElementById('content-'+(--idxContent)).remove();
+		}
+	}
+
+	function addImage(){
+		if(idxImage <= 4){
+		    var div= document.createElement('div');
+		    div.id= 'img-'+idxImage;
+		    div.className= 'form-group';
+		    div.innerHTML= "<label for='idImg-"+idxImage+"'>Image-"+idxImage+"</label>"+
+                "<input type='file' class='input form-control' name='idImage-"+idxImage+"' accept='.jpg, .jpeg, .png' required>";
+			document.getElementById('newImg').append(div);
+            idxImage+=1;
+		}
+		else{
+			alert("Image maximum capacity per article is 5");
+		}
+	}
+
+	function addContent(){
+		if(idxContent <= 4){
+		    var div= document.createElement('div');
+		    div.id= 'content-'+idxContent;
+		    div.className= 'form-group';
+			div.innerHTML="<label for='idContent-"+idxContent+"'>Content-"+idxContent+"</label>"+
+                "<input type='text' class='input form-control' name='idContent-"+idxContent+"' required placeholder='Insert Content-"+idxContent+"'>";
+            document.getElementById('newContent').append(div);
+            idxContent+=1;
+		}
+		else{
+			alert("Content maximum capacity per article is 5");
+		}
+	}
+
+	function sendIndex(){
+		document.getElementById('sendIndex').innerHTML +=
+		"<input type='text' name='idxNewImage' value='"+idxImage+"' hidden>"+
+		"<input type='text' name='idxNewContent' value='"+idxContent+"' hidden>"+
+		"<input type='text' name='idxImage' value='"+<?=(sizeof($images)+1)?>+"' hidden>"+
+		"<input type='text' name='idxContent' value='"+<?=(sizeof($contents)+1)?>+"' hidden>";
+		if(idxImage < <?=(sizeof($images)+1)?>){
+		    if(1 <= <?php echo sizeof($images) ?>){
+				document.getElementById('sendIndex').innerHTML +=
+				"<input type='text' class='input form-control' name='oldidImage-"+(1)+"' value='<?php if(sizeof($images)>0) echo $images[1] ?>' hidden>";
+			}
+			if(2 <= <?php echo sizeof($images) ?>){
+				document.getElementById('sendIndex').innerHTML +=
+				"<input type='text' class='input form-control' name='oldidImage-"+(2)+"' value='<?php if(sizeof($images)>1) echo $images[2] ?>' hidden>";
+			}
+			if(3 <= <?php echo sizeof($images) ?>){
+				document.getElementById('sendIndex').innerHTML +=
+				"<input type='text' class='input form-control' name='oldidImage-"+(3)+"' value='<?php if(sizeof($images)>2)echo  $images[3] ?>' hidden>";
+			}
+			if(4 <= <?php echo sizeof($images) ?>){
+				document.getElementById('sendIndex').innerHTML +=
+				"<input type='text' class='input form-control' name='oldidImage-"+(4)+"' value='<?php if(sizeof($images)>3)echo  $images[4] ?>' hidden>";
+			}
+		}
+	}
+
 	</script>
+
 <body onload="onDocumentFinish()">
+	<header>
+		<nav class="navbar navbar-default">
+			<div style="display: flex; justify-content: space-between; width: 80%">
+				<div class="navbar-header">
+					<h4 style="color: grey"> Updating Post in <?php echo "<span class='title'>".ucfirst($type)."</span>"?></h4>
+				</div>
+			</div>
+		</nav>
+	</header>
+
     <div class="container">
-		<form class="form" action="./cms/updateContent.php" method="POST" enctype="multipart/form-data">
+		<div class="mb-5 text-right">
+			<button class="btn btn-primary" onclick="addImage()">Add Image</button>
+			<button class="btn btn-primary" onclick="addContent()">Add Content</button>
+			<button class="btn btn-primary" onclick="deleteImage()">Delete Image</button>
+			<button class="btn btn-primary" onclick="deleteContent()">Delete Content</button>
+		</div>
+
+		<form class="form" id="formUpdate" action="./cms/updateContent.php" method="POST" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label>
                 <input type="text" class="input form-control" name="id" value="<?php echo $id?>" disabled placeholder="Insert ID">
@@ -135,7 +219,7 @@
 			</div>
             <div class="form-group">
 				<label for="content">Content</label>
-                <input type="text" class="input form-control" name="content" value="<?php echo $content?>" required placeholder="Insert Content">
+				<textarea class='input form-control' rows='7' form='formUpdate' name="content" required placeholder="Insert Content"><?= $content?></textarea>
 			</div>
 			<div id="newImg">
 
